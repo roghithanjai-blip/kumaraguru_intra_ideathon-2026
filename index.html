@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<!--
+=====================================================================
+  Kumaraguru Intra Ideathon'26 (KII'26)
+  Organized by Re - Centre for Exploratory Research, KCT Coimbatore
+  ---------------------------------------------------------------
+  This file is a single, self-contained HTML page (Tailwind CDN,
+  no build step). Structure:
+    <head>    fonts, Tailwind config/colors, page title & favicon
+    <header>  sticky navbar
+    <main>    all page sections (see the SECTION comments below)
+    <footer>  contact/social/legal
+    <script>  accordion behavior + the registration link constant
+
+  TO EDIT TEXT: search for the words you want to change directly,
+  most content is plain readable text between tags.
+
+  TO ADD THE 105 PROBLEM STATEMENTS: search this file for
+  "PROBLEM STATEMENT" - each of the 105 placeholder slots is
+  individually commented and easy to find/replace.
+
+  TO CHANGE THE REGISTRATION FORM LINK: search for
+  "REGISTRATION_FORM_URL" near the bottom of the file - one line
+  controls all 5 Register buttons on the page.
+
+  TO SWAP LOGOS/IMAGES: see the file naming convention in the
+  project README (favicon.png, logo-navbar.png, hero-banner.png).
+=====================================================================
+-->
+<html class="scroll-smooth" lang="en">
+<head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Kumaraguru Intra Ideathon'26 (KII'26) | Ré – Centre for Exploratory Research</title><meta content="KII'26 — a 36-hour research &amp; innovation challenge for first-year students of Kumaraguru College of Technology, organized by Ré – Centre for Exploratory Research." name="description"/><link href="favicon.png" rel="icon" type="image/png"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+</style>
+
+<script src="https://cdn.tailwindcss.com">
+</script>
+
+<script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"tertiary-container":"#004b44","tertiary-fixed-dim":"#6bd8cb","surface-variant":"#e5e2e1","surface-container-lowest":"#ffffff","on-surface-variant":"#434652","secondary-container":"#fe7796","on-primary-fixed":"#001947","on-primary":"#ffffff","on-tertiary-container":"#51c0b3","surface-bright":"#fcf9f8","on-surface":"#1c1b1b","inverse-on-surface":"#f3f0ef","surface-tint":"#345baf","tertiary-fixed":"#89f5e7","error":"#ba1a1a","on-secondary":"#ffffff","on-primary-fixed-variant":"#144296","inverse-primary":"#b1c5ff","on-tertiary-fixed":"#00201d","secondary-fixed":"#ffd9de","outline-variant":"#c4c6d3","on-error-container":"#93000a","surface":"#fcf9f8","on-primary-container":"#8dadff","surface-container":"#f0eded","on-background":"#1c1b1b","surface-container-high":"#eae7e7","surface-dim":"#dcd9d9","on-secondary-container":"#74092f","inverse-surface":"#313030","on-error":"#ffffff","primary-fixed-dim":"#b1c5ff","tertiary":"#00322e","secondary-fixed-dim":"#ffb2bf","on-secondary-fixed":"#3f0015","primary-fixed":"#dae2ff","on-tertiary":"#ffffff","outline":"#747783","primary":"#002869","error-container":"#ffdad6","on-tertiary-fixed-variant":"#005049","secondary":"#a73453","surface-container-highest":"#e5e2e1","surface-container-low":"#f6f3f2","on-secondary-fixed-variant":"#871b3c","primary-container":"#0b3d91","background":"#fcf9f8"},borderRadius:{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},spacing:{"space-md":"1rem","margin":"1.5rem","space-xs":"0.25rem","gutter-lg":"2rem","gutter-sm":"1rem","margin-lg":"3rem","gutter":"1.5rem","space-sm":"0.5rem","space-lg":"1.5rem","margin-sm":"1rem","space-xl":"2.5rem"},fontFamily:{"headline-xl":["Plus Jakarta Sans"],"body-lg":["Inter"],"headline-sm":["Plus Jakarta Sans"],"body-md":["Inter"],"display-lg":["Plus Jakarta Sans"],"title-md":["Plus Jakarta Sans"],"label-md":["Inter"],"headline-xl-mobile":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"label-sm":["Inter"],"headline-lg":["Plus Jakarta Sans"],"display-lg-mobile":["Plus Jakarta Sans"],"body-sm":["Inter"],"code-sm":["JetBrains Mono"],"headline-md":["Plus Jakarta Sans"]},fontSize:{"headline-xl":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"400"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"-0.005em","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","letterSpacing":"0","fontWeight":"400"}],"display-lg":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}],"title-md":["18px",{"lineHeight":"24px","letterSpacing":"0","fontWeight":"600"}],"label-md":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"500"}],"headline-xl-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.015em","fontWeight":"600"}],"display-lg-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"body-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.005em","fontWeight":"400"}],"code-sm":["13px",{"lineHeight":"18px","letterSpacing":"0","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}}
+</script>
+
+</head>
+<body class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- ============================================================
+     HEADER / NAVBAR — sticky top nav, logo, links, Register button,
+     mobile hamburger menu + drawer
+============================================================ -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.06)]"><div class="h-16 sm:h-20 max-w-[1280px] mx-auto px-margin sm:px-margin-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-sm sm:gap-space-md shrink-0"><img alt="KII'26 event logo" class="h-8 w-auto object-contain" src="logo-navbar.png"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary leading-tight tracking-tight">KII'26</span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium tracking-wide uppercase">Ré · KCT</span></div></div>
+<nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-primary font-semibold"><a aria-current="page" class="transition-colors text-primary font-semibold" data-path="home" href="#hero">Home</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#about">About</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="research-circles" href="#circles">Research Circles</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="timeline" href="#timeline">Timeline</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="why-participate" href="#why-participate">Why Participate</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="rules" href="#rules">Rules</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="#contact">Contact</a>
+</nav>
+<div class="flex items-center gap-space-sm sm:gap-space-md"><a class="hidden sm:inline-flex items-center justify-center bg-secondary text-on-secondary px-space-md py-space-sm rounded-xl font-label-md text-label-md hover:bg-on-secondary-container transition-all shadow-[0_1px_3px_0_rgba(15,23,42,0.05)] active:scale-[0.98]" data-register-link="" href="https://forms.cloud.microsoft/r/8vwUR24YmA" rel="noopener" target="_blank">Register</a><div class="hidden sm:flex w-8 h-8 rounded-full bg-primary items-center justify-center text-on-primary shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><button aria-label="Toggle Mobile Menu" class="xl:hidden p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" onclick="document.getElementById('mobile-drawer').classList.toggle('hidden')" type="button"><span class="material-symbols-outlined text-[24px]">menu</span></button></div></div>
+<!-- Mobile nav drawer (shown when hamburger icon is tapped) -->
+<div class="hidden xl:hidden fixed top-16 left-0 right-0 w-full bg-surface-container-lowest shadow-xl px-margin py-space-md flex flex-col gap-space-sm max-h-80 overflow-y-auto z-50" id="mobile-drawer"><a class="py-space-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface" href="#hero" onclick="document.getElementById('mobile-drawer').classList.add('hidden')">Home</a><a class="py-space-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface" href="#about" onclick="document.getElementById('mobile-drawer').classList.add('hidden')">About</a><a class="py-space-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface" href="#circles" onclick="document.getElementById('mobile-drawer').classList.add('hidden')">Research Circles</a><a class="py-space-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface" href="#timeline" onclick="document.getElementById('mobile-drawer').classList.add('hidden')">Timeline</a><a class="py-space-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface" href="#why-participate" onclick="document.getElementById('mobile-drawer').classList.add('hidden')">Why Participate</a><a class="py-space-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface" href="#rules" onclick="document.getElementById('mobile-drawer').classList.add('hidden')">Rules</a><a class="py-space-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface" href="#contact" onclick="document.getElementById('mobile-drawer').classList.add('hidden')">Contact</a><div class="pt-space-sm border-outline-variant/40"><a class="w-full flex items-center justify-center bg-secondary text-on-secondary py-space-sm rounded-xl font-label-md text-label-md font-semibold" data-register-link="" href="https://forms.cloud.microsoft/r/8vwUR24YmA" onclick="document.getElementById('mobile-drawer').classList.add('hidden')" rel="noopener" target="_blank">Register for KII'26</a></div></div>
+</header>
+<!-- ============================================================
+     MAIN CONTENT — all page sections live inside here
+============================================================ -->
+<main class="w-full pt-20 bg-surface"><div class="flex flex-col w-full">
+<!-- 1. HERO SECTION -->
+<!-- ============================================================
+     SECTION: HERO — event name, tagline, dates/venue, primary Register CTA
+============================================================ -->
+<section class="relative w-full overflow-hidden bg-gradient-to-br from-[#072354] via-primary to-[#001947] text-on-primary" id="hero">
+<div class="absolute inset-0 opacity-15 pointer-events-none">
+<svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="48" id="academic-grid" patternunits="userSpaceOnUse" width="48">
+<path d="M 48 0 L 0 0 0 48" fill="none" stroke="#FFFFFF" stroke-width="1"></path>
+</pattern>
+</defs>
+<rect fill="url(#academic-grid)" height="100%" width="100%"></rect>
+</svg>
+</div>
+<div class="relative max-w-[1280px] mx-auto px-margin sm:px-margin-lg py-space-xl sm:py-[5rem] grid grid-cols-1 lg:grid-cols-12 gap-space-lg lg:gap-space-xl items-center">
+<div class="lg:col-span-7 flex flex-col items-start gap-space-md z-10">
+<div class="hidden sm:inline-flex items-center gap-space-xs bg-secondary/20 text-secondary-fixed backdrop-blur-md px-space-md py-space-xs rounded-full"><span class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></span><span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">6 &amp; 7 October 2026 · MGate, KCT Campus</span></div>
+<div class="flex flex-col gap-space-xs">
+<h1 class="font-headline-xl text-headline-xl sm:text-[48px] sm:leading-[56px] text-surface font-bold tracking-tight">
+            Kumaraguru Intra Ideathon'26
+          </h1>
+<span class="font-title-md text-title-md sm:text-[22px] text-tertiary-fixed font-semibold tracking-wide">
+            Think. Research. Innovate.
+          </span>
+</div>
+<p class="font-body-lg text-body-lg text-surface-variant max-w-xl leading-relaxed">
+          A 36-Hour Research &amp; Innovation Challenge designed exclusively for First-Year Students. Unlock deep inquiry across multidisciplinary problem realms.
+        </p>
+<div class="flex flex-wrap items-center gap-space-md mt-space-sm w-full sm:w-auto">
+<a class="w-full sm:w-auto text-center px-space-lg py-space-md bg-secondary text-on-secondary hover:bg-on-secondary-container transition-all rounded-xl font-label-md text-label-md font-semibold shadow-md active:scale-[0.98]" data-register-link="" href="https://forms.cloud.microsoft/r/8vwUR24YmA" rel="noopener" target="_blank">
+            Register Now
+          </a>
+<a class="w-full sm:w-auto text-center px-space-lg py-space-md bg-surface-container-lowest/10 hover:bg-surface-container-lowest/20 text-on-primary transition-all rounded-xl font-label-md text-label-md font-medium backdrop-blur-sm" href="#about">
+            Learn More
+          </a>
+</div>
+<div class="pt-space-md flex items-center gap-space-sm text-surface-variant/90">
+<span class="material-symbols-outlined text-[20px] text-tertiary-fixed">verified</span>
+<span class="font-code-sm text-code-sm tracking-wide">Organized by Ré – Centre for Exploratory Research</span>
+</div>
+</div>
+<div class="lg:col-span-5 relative flex justify-center w-full">
+<div class="relative w-full max-w-[460px] aspect-[4/3] rounded-xl overflow-hidden shadow-2xl bg-surface-container-lowest/10 backdrop-blur-md">
+<img alt="KII'26 hero banner graphic" class="w-full h-full object-cover rounded-xl" src="hero-banner.png"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent pointer-events-none"></div>
+<div class="absolute bottom-space-md left-space-md right-space-md p-space-sm bg-surface-container-lowest/90 backdrop-blur-md rounded-lg shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm font-semibold text-primary">KII'26 Exploration Node</span>
+<span class="font-code-sm text-code-sm text-secondary font-medium">Batch of 2026–30</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+
+<!-- 2. ABOUT SECTION -->
+<!-- ============================================================
+     SECTION: ABOUT — About Re (Centre for Exploratory Research) + About KII'26
+============================================================ -->
+<section class="w-full py-space-xl sm:py-[4rem] bg-surface" id="about">
+<div class="max-w-[1280px] mx-auto px-margin sm:px-margin-lg flex flex-col gap-space-xl">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-widest">Discovery &amp; Impact</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">About the Event</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Pioneering early-stage scholarly engagement, systemic inquiry, and technical prototyping within Kumaraguru institutions.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[28px]">biotech</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-primary">About Ré</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Centre for Exploratory Research</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            Ré – Centre for Exploratory Research serves as Kumaraguru College of Technology's premier student-driven research foundation. Ré cultivates systematic scientific methodology, intellectual rigor, patent literacy, and collaborative experimentation from the very onset of engineering matriculation.
+          </p>
+<div class="p-space-md rounded-lg bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm">
+            Fostering student patents, research papers, and technical grants through dedicated infrastructure and senior researcher mentorship.
+          </div>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[28px]">timer</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-secondary">About KII'26</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Kumaraguru Intra Ideathon</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+            An intensive 36-hour sprint curated exclusively for first-year engineering cohorts in interdisciplinary squads of 4 to 5 members. Departing from rigid single-theme constraints, KII'26 offers 105 rigorously framed industrial and societal problem statements spanning diverse scientific circles.
+          </p>
+<div class="p-space-md rounded-lg bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm">
+            Structured into multi-tier evaluation benchmarks: from formulation to rigorous technological validation.
+          </div>
+</div>
+</div>
+</div>
+
+</section>
+
+<!-- 3. EVENT AT A GLANCE -->
+<!-- ============================================================
+     SECTION: EVENT AT A GLANCE — quick-info stat cards (eligibility, team size, duration, date, venue)
+============================================================ -->
+<section class="w-full py-space-xl sm:py-[4rem] bg-surface-container-low" id="glance">
+<div class="max-w-[1280px] mx-auto px-margin sm:px-margin-lg flex flex-col gap-space-xl">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-widest">Key Structural Parameters</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Event at a Glance</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-space-md">
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm hover:-translate-y-1 transition-transform flex flex-col gap-space-sm items-start">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">school</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Eligibility</span>
+<span class="font-title-md text-title-md text-primary font-bold">First-Year Only</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Batch 2026–2030</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm hover:-translate-y-1 transition-transform flex flex-col gap-space-sm items-start">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">group</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Team Size</span>
+<span class="font-title-md text-title-md text-primary font-bold">4–5 Members</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Cross-branch encouraged</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm hover:-translate-y-1 transition-transform flex flex-col gap-space-sm items-start">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">hourglass_top</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Duration</span>
+<span class="font-title-md text-title-md text-primary font-bold">36 Continuous</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">In-Person Sprint</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm hover:-translate-y-1 transition-transform flex flex-col gap-space-sm items-start">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">calendar_month</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Dates</span>
+<span class="font-title-md text-title-md text-primary font-bold">6–7 Oct 2026</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Tuesday &amp; Wednesday</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm hover:-translate-y-1 transition-transform flex flex-col gap-space-sm items-start">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">pin_drop</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Venue</span>
+<span class="font-title-md text-title-md text-primary font-bold">MGate Hub</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">KCT Campus, CBE</span>
+</div>
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm hover:-translate-y-1 transition-transform flex flex-col gap-space-sm items-start">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">psychology</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Hosted By</span>
+<span class="font-title-md text-title-md text-secondary font-bold">Ré Centre</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">KCT Research Wing</span>
+</div>
+</div>
+</div>
+
+</section>
+
+<!-- 4. RESEARCH CIRCLES -->
+<!-- ============================================================
+     SECTION: RESEARCH CIRCLES — 7 circles x 15 problem-statement placeholders (105 total)
+============================================================ -->
+<section class="w-full py-space-xl sm:py-[4rem] bg-surface" id="circles"><div class="max-w-[1280px] mx-auto px-margin sm:px-margin-lg flex flex-col gap-space-xl"><div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md"><div class="flex flex-col gap-space-xs max-w-2xl"><span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-widest">Multi-Disciplinary Framework</span><h2 class="font-headline-lg text-headline-lg text-on-surface">105 Problem Statements · 7 Research Circles</h2><p class="font-body-md text-body-md text-on-surface-variant">Explore dedicated institutional research tracks designed to push first-year engineering capabilities beyond standard curriculum limits.</p></div><div class="px-space-md py-space-sm bg-primary/10 rounded-lg text-primary font-code-sm text-code-sm font-medium self-start md:self-auto">15 Core Challenges per Circle</div></div><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg items-start">
+<!-- Card 1: Automotive -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between"><div class="flex flex-col gap-space-md"><div class="flex items-center justify-between"><div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[24px]">directions_car</span></div><span class="px-space-sm py-space-xs rounded-full bg-[#F0FDFA] text-[#0F766E] font-code-sm text-code-sm font-medium">15 Problem Statements</span></div><div class="flex flex-col gap-space-xs"><h3 class="font-headline-sm text-headline-sm text-primary">Automotive Research Circle</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Focus on EV powertrains, autonomous vehicle telemetry, thermal runaway prevention, and micro-mobility platforms.</p></div></div><div class="mt-space-lg pt-space-sm"><button class="w-full flex items-center justify-between py-space-xs text-primary font-label-md text-label-md font-semibold hover:text-on-primary-fixed-variant transition-colors cursor-pointer" onclick="toggleCircleAccordion('circle-1')" type="button"><span class="" id="circle-1-label">View Problem Statements</span><span class="material-symbols-outlined text-[20px] transition-transform" id="circle-1-icon">expand_more</span></button><div class="hidden flex flex-col gap-space-xs mt-space-sm pt-space-xs" id="circle-1-panel"><div class="max-h-80 overflow-y-auto pr-1 flex flex-col gap-space-xs">
+<!-- PROBLEM STATEMENT 1 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 1 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 2 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 2 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 3 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 3 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 4 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 4 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 5 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 5 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 6 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 6 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 7 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 7 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 8 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 8 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 9 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 9 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 10 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 10 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 11 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 11 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 12 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 12 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 13 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 13 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 14 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 14 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 15 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 15 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div></div></div></div></div>
+<!-- Card 2: Bioscience -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between"><div class="flex flex-col gap-space-md"><div class="flex items-center justify-between"><div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[24px]">strikethrough_s</span></div><span class="px-space-sm py-space-xs rounded-full bg-[#F0FDFA] text-[#0F766E] font-code-sm text-code-sm font-medium">15 Problem Statements</span></div><div class="flex flex-col gap-space-xs"><h3 class="font-headline-sm text-headline-sm text-primary">Bioscience Research Circle</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Point-of-care bio-sensors, digital healthcare telemetry, non-invasive diagnostic tech, and biochemical instrumentation.</p></div></div><div class="mt-space-lg pt-space-sm"><button class="w-full flex items-center justify-between py-space-xs text-primary font-label-md text-label-md font-semibold hover:text-on-primary-fixed-variant transition-colors cursor-pointer" onclick="toggleCircleAccordion('circle-2')" type="button"><span class="" id="circle-2-label">View Problem Statements</span><span class="material-symbols-outlined text-[20px] transition-transform" id="circle-2-icon">expand_more</span></button><div class="hidden flex flex-col gap-space-xs mt-space-sm pt-space-xs" id="circle-2-panel"><div class="max-h-80 overflow-y-auto pr-1 flex flex-col gap-space-xs">
+<!-- PROBLEM STATEMENT 1 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 1 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 2 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 2 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 3 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 3 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 4 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 4 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 5 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 5 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 6 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 6 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 7 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 7 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 8 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 8 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 9 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 9 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 10 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 10 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 11 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 11 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 12 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 12 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 13 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 13 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 14 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 14 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 15 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 15 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div></div></div></div></div>
+<!-- Card 3: Educational -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between"><div class="flex flex-col gap-space-md"><div class="flex items-center justify-between"><div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[24px]">menu_book</span></div><span class="px-space-sm py-space-xs rounded-full bg-[#F0FDFA] text-[#0F766E] font-code-sm text-code-sm font-medium">15 Problem Statements</span></div><div class="flex flex-col gap-space-xs"><h3 class="font-headline-sm text-headline-sm text-primary">Educational Research Circle</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Adaptive learning analytics, cognitive accessibility interfaces, and immersive simulation environments for rural STEM education.</p></div></div><div class="mt-space-lg pt-space-sm"><button class="w-full flex items-center justify-between py-space-xs text-primary font-label-md text-label-md font-semibold hover:text-on-primary-fixed-variant transition-colors cursor-pointer" onclick="toggleCircleAccordion('circle-3')" type="button"><span class="" id="circle-3-label">View Problem Statements</span><span class="material-symbols-outlined text-[20px] transition-transform" id="circle-3-icon">expand_more</span></button><div class="hidden flex flex-col gap-space-xs mt-space-sm pt-space-xs" id="circle-3-panel"><div class="max-h-80 overflow-y-auto pr-1 flex flex-col gap-space-xs">
+<!-- PROBLEM STATEMENT 1 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 1 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 2 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 2 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 3 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 3 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 4 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 4 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 5 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 5 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 6 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 6 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 7 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 7 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 8 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 8 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 9 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 9 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 10 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 10 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 11 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 11 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 12 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 12 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 13 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 13 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 14 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 14 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 15 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 15 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div></div></div></div></div>
+<!-- Card 4: Design -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between"><div class="flex flex-col gap-space-md"><div class="flex items-center justify-between"><div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[24px]">architecture</span></div><span class="px-space-sm py-space-xs rounded-full bg-[#F0FDFA] text-[#0F766E] font-code-sm text-code-sm font-medium">15 Problem Statements</span></div><div class="flex flex-col gap-space-xs"><h3 class="font-headline-sm text-headline-sm text-primary">Design Research Circle</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Human-centered industrial ergonomics, wearable assistive mechanisms, bio-mimetic product architectures, and spatial design.</p></div></div><div class="mt-space-lg pt-space-sm"><button class="w-full flex items-center justify-between py-space-xs text-primary font-label-md text-label-md font-semibold hover:text-on-primary-fixed-variant transition-colors cursor-pointer" onclick="toggleCircleAccordion('circle-4')" type="button"><span class="" id="circle-4-label">View Problem Statements</span><span class="material-symbols-outlined text-[20px] transition-transform" id="circle-4-icon">expand_more</span></button><div class="hidden flex flex-col gap-space-xs mt-space-sm pt-space-xs" id="circle-4-panel"><div class="max-h-80 overflow-y-auto pr-1 flex flex-col gap-space-xs">
+<!-- PROBLEM STATEMENT 1 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 1 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 2 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 2 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 3 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 3 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 4 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 4 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 5 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 5 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 6 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 6 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 7 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 7 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 8 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 8 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 9 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 9 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 10 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 10 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 11 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 11 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 12 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 12 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 13 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 13 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 14 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 14 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 15 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 15 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div></div></div></div></div>
+<!-- Card 5: Textile -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between"><div class="flex flex-col gap-space-md"><div class="flex items-center justify-between"><div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[24px]">texture</span></div><span class="px-space-sm py-space-xs rounded-full bg-[#F0FDFA] text-[#0F766E] font-code-sm text-code-sm font-medium">15 Problem Statements</span></div><div class="flex flex-col gap-space-xs"><h3 class="font-headline-sm text-headline-sm text-primary">Textile Research Circle</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Smart technical textiles, conductive yarn integration, sustainable dye reclamation, and high-performance polymer fibers.</p></div></div><div class="mt-space-lg pt-space-sm"><button class="w-full flex items-center justify-between py-space-xs text-primary font-label-md text-label-md font-semibold hover:text-on-primary-fixed-variant transition-colors cursor-pointer" onclick="toggleCircleAccordion('circle-5')" type="button"><span class="" id="circle-5-label">View Problem Statements</span><span class="material-symbols-outlined text-[20px] transition-transform" id="circle-5-icon">expand_more</span></button><div class="hidden flex flex-col gap-space-xs mt-space-sm pt-space-xs" id="circle-5-panel"><div class="max-h-80 overflow-y-auto pr-1 flex flex-col gap-space-xs">
+<!-- PROBLEM STATEMENT 1 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 1 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 2 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 2 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 3 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 3 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 4 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 4 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 5 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 5 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 6 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 6 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 7 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 7 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 8 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 8 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 9 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 9 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 10 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 10 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 11 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 11 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 12 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 12 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 13 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 13 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 14 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 14 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 15 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 15 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div></div></div></div></div>
+<!-- Card 6: Renewable Energy -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between"><div class="flex flex-col gap-space-md"><div class="flex items-center justify-between"><div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[24px]">solar_power</span></div><span class="px-space-sm py-space-xs rounded-full bg-[#F0FDFA] text-[#0F766E] font-code-sm text-code-sm font-medium">15 Problem Statements</span></div><div class="flex flex-col gap-space-xs"><h3 class="font-headline-sm text-headline-sm text-primary">Renewable Energy Circle</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Microgrid balancing, novel battery chemistries, high-efficiency perovskite cells, and decentralized energy distribution.</p></div></div><div class="mt-space-lg pt-space-sm"><button class="w-full flex items-center justify-between py-space-xs text-primary font-label-md text-label-md font-semibold hover:text-on-primary-fixed-variant transition-colors cursor-pointer" onclick="toggleCircleAccordion('circle-6')" type="button"><span class="" id="circle-6-label">View Problem Statements</span><span class="material-symbols-outlined text-[20px] transition-transform" id="circle-6-icon">expand_more</span></button><div class="hidden flex flex-col gap-space-xs mt-space-sm pt-space-xs" id="circle-6-panel"><div class="max-h-80 overflow-y-auto pr-1 flex flex-col gap-space-xs">
+<!-- PROBLEM STATEMENT 1 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 1 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 2 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 2 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 3 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 3 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 4 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 4 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 5 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 5 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 6 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 6 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 7 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 7 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 8 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 8 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 9 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 9 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 10 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 10 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 11 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 11 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 12 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 12 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 13 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 13 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 14 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 14 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 15 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 15 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div></div></div></div></div>
+<!-- Card 7: Environmental Science & Sustainable Systems -->
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex flex-col justify-between md:col-span-2 lg:col-span-1"><div class="flex flex-col gap-space-md"><div class="flex items-center justify-between"><div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[24px]">eco</span></div><span class="px-space-sm py-space-xs rounded-full bg-[#F0FDFA] text-[#0F766E] font-code-sm text-code-sm font-medium">15 Problem Statements</span></div><div class="flex flex-col gap-space-xs"><h3 class="font-headline-sm text-headline-sm text-primary">Environmental Science &amp; Sustainable Systems</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Industrial effluent filtration, solid waste lifecycle tracking, bio-plastics synthesis, and carbon capture mitigation.</p></div></div><div class="mt-space-lg pt-space-sm"><button class="w-full flex items-center justify-between py-space-xs text-primary font-label-md text-label-md font-semibold hover:text-on-primary-fixed-variant transition-colors cursor-pointer" onclick="toggleCircleAccordion('circle-7')" type="button"><span class="" id="circle-7-label">View Problem Statements</span><span class="material-symbols-outlined text-[20px] transition-transform" id="circle-7-icon">expand_more</span></button><div class="hidden flex flex-col gap-space-xs mt-space-sm pt-space-xs" id="circle-7-panel"><div class="max-h-80 overflow-y-auto pr-1 flex flex-col gap-space-xs">
+<!-- PROBLEM STATEMENT 1 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 1 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 2 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 2 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 3 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 3 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 4 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 4 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 5 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 5 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 6 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 6 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 7 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 7 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 8 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 8 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 9 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 9 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 10 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 10 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 11 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 11 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 12 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 12 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 13 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 13 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 14 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 14 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div>
+<!-- PROBLEM STATEMENT 15 — replace title + description below with the real one -->
+<div class="p-space-xs px-space-sm rounded-lg bg-surface-container-low border border-outline-variant/40 flex flex-col gap-0.5"><span class="font-code-sm text-code-sm font-semibold text-primary">Problem Statement 15 — [Title placeholder]</span><span class="font-body-sm text-body-sm text-[#94A3B8]">[Add problem statement description here]</span></div></div></div></div></div></div></div>
+</section>
+
+<!-- 5. SELECTION PROCESS & TIMELINE -->
+<!-- ============================================================
+     SECTION: SELECTION PROCESS / TIMELINE — Round 1 -> Zeroth Review -> Round 2 -> Valedictory
+============================================================ -->
+<section class="w-full py-space-xl sm:py-[4rem] bg-surface-container-low" id="timeline">
+<div class="max-w-[1280px] mx-auto px-margin sm:px-margin-lg flex flex-col gap-space-xl">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-widest">Chronological Roadmap</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Selection Process &amp; Schedule</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          From abstract shortlisting to 36 hours of rigorous continuous prototype review and validation.
+        </p>
+</div>
+<!-- Accent Banner for the 36-Hour Core Milestone -->
+<div class="p-space-md rounded-xl bg-primary text-on-primary shadow-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-on-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px] text-tertiary-fixed">acute</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md font-bold">The 36-Hour In-Person Ideathon Milestone</span>
+<span class="font-body-sm text-body-sm text-surface-variant">Continuous intensive mentoring, rapid prototyping, and 3 tiers of review jury panels</span>
+</div>
+</div>
+<span class="font-code-sm text-code-sm bg-secondary px-space-md py-space-xs rounded-full font-semibold text-on-secondary whitespace-nowrap">
+          6 Oct (09:00 AM) — 7 Oct (09:00 PM)
+        </span>
+</div>
+<!-- Timeline visual progression grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-9 gap-space-sm relative">
+<!-- Step 1 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs relative">
+<span class="font-code-sm text-code-sm text-secondary font-bold">PHASE 01</span>
+<span class="font-title-md text-title-md text-primary font-bold">28 Sep</span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">Registration Opens</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Portal live for team formation and circle selection.</span>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs relative">
+<span class="font-code-sm text-code-sm text-secondary font-bold">PHASE 02</span>
+<span class="font-title-md text-title-md text-primary font-bold">4 Oct</span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">Abstract Deadline</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Submission of structured initial 2-page research briefs.</span>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs relative">
+<span class="font-code-sm text-code-sm text-secondary font-bold">PHASE 03</span>
+<span class="font-title-md text-title-md text-primary font-bold">5 Oct</span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">Zeroth Review</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Virtual rubric assessment by domain experts.</span>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs relative">
+<span class="font-code-sm text-code-sm text-secondary font-bold">PHASE 04</span>
+<span class="font-title-md text-title-md text-primary font-bold">5 Oct</span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">Shortlist Notice</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Top teams selected for the 36-hr physical hackathon.</span>
+</div>
+<!-- Step 5: Inside Hackathon -->
+<div class="bg-primary/5 p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs relative border-t-2 border-primary">
+<span class="font-code-sm text-code-sm text-primary font-bold">SPRINT START</span>
+<span class="font-title-md text-title-md text-primary font-bold">6 Oct (AM)</span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">Kick-off &amp; Mentoring</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Orientation, desk allocation, mentor alignment.</span>
+</div>
+<!-- Step 6 -->
+<div class="bg-primary/5 p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs relative border-t-2 border-primary">
+<span class="font-code-sm text-code-sm text-primary font-bold">EVAL 01</span>
+<span class="font-title-md text-title-md text-primary font-bold">6 Oct (PM)</span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">First Review</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Problem definition, scientific logic, novel methodology.</span>
+</div>
+<!-- Step 7 -->
+<div class="bg-primary/5 p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs relative border-t-2 border-primary">
+<span class="font-code-sm text-code-sm text-primary font-bold">EVAL 02</span>
+<span class="font-title-md text-title-md text-primary font-bold">6 Oct (Night)</span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">Second Review</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Architecture check, schematic audit, mid-sprint progress.</span>
+</div>
+<!-- Step 8 -->
+<div class="bg-primary/5 p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs relative border-t-2 border-primary">
+<span class="font-code-sm text-code-sm text-primary font-bold">FINAL JURY</span>
+<span class="font-title-md text-title-md text-primary font-bold">7 Oct (PM)</span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">Final Review</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Proof-of-concept presentation &amp; jury evaluation.</span>
+</div>
+<!-- Step 9 -->
+<div class="bg-secondary/10 p-space-md rounded-xl shadow-sm flex flex-col gap-space-xs relative border-t-2 border-secondary">
+<span class="font-code-sm text-code-sm text-secondary font-bold">FINALE</span>
+<span class="font-title-md text-title-md text-secondary font-bold">7 Oct (Eve)</span>
+<p class="font-body-sm text-body-sm text-on-surface font-medium">Valedictory &amp; Awards</p>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Prize distribution, grant allotment announcement.</span>
+</div>
+</div>
+</div>
+
+</section>
+
+<!-- 6. WHY PARTICIPATE / BEYOND THE IDEATHON -->
+<!-- ============================================================
+     SECTION: WHY PARTICIPATE + BEYOND THE IDEATHON — benefits, pathway, Top-5-team perks
+============================================================ -->
+<section class="w-full py-space-xl sm:py-[4rem] bg-surface" id="why-participate">
+<div class="max-w-[1280px] mx-auto px-margin sm:px-margin-lg flex flex-col gap-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg lg:gap-space-xl">
+<!-- Left: Why Participate Checklist -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-widest">Long-Term Impact</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Why Participate?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Designed as an institutional launchpad for undergraduate research distinction rather than a one-off competition.
+            </p>
+</div>
+<div class="flex flex-col gap-space-sm mt-space-xs">
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<span class="material-symbols-outlined text-[24px] text-primary shrink-0">check_circle</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Early Research Exposure</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Begin scientific inquiry, literature synthesis, and experimental thinking during your first year itself.</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<span class="material-symbols-outlined text-[24px] text-primary shrink-0">check_circle</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Interdisciplinary Team Collaboration</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Work seamlessly across disciplines—merging mechanical, computing, biotechnology, and electronics.</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<span class="material-symbols-outlined text-[24px] text-primary shrink-0">check_circle</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Direct Faculty &amp; Ré Mentorship</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Continuous technical critiques from experienced student researchers and specialized departmental faculty.</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<span class="material-symbols-outlined text-[24px] text-primary shrink-0">check_circle</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Access to Lab Infrastructure</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Unlock specialized KCT incubation spaces, prototyping labs, testing rigs, and fabrication tools.</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex items-start gap-space-md">
+<span class="material-symbols-outlined text-[24px] text-primary shrink-0">check_circle</span>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Fast-Track to National Competitions</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Shortlisted concepts receive expedited institutional sponsorship for Smart India Hackathon and national challenges.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Flowchart Pipeline -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-widest">Incubation Pipeline</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface">From Ideathon to Research</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              The step-by-step evolution trajectory for successful participant projects beyond KII'26.
+            </p>
+</div>
+<div class="p-space-lg rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-code-sm text-code-sm font-bold">1</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Ideathon (KII'26)</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Initial problem mapping, hypothesis framing, and 36-hour proof of concept.</span>
+</div>
+</div>
+<div class="w-0.5 h-6 bg-surface-variant ml-4"></div>
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-code-sm text-code-sm font-bold">2</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Mentorship Phase</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Rigorous 8-week mentoring with designated research guides and domain faculty.</span>
+</div>
+</div>
+<div class="w-0.5 h-6 bg-surface-variant ml-4"></div>
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-code-sm text-code-sm font-bold">3</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Project Development &amp; Seed Funding</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Grant disbursement for procurement of components, sensors, and materials.</span>
+</div>
+</div>
+<div class="w-0.5 h-6 bg-surface-variant ml-4"></div>
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-code-sm text-code-sm font-bold">4</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Publication &amp; Patent Filing</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Preparation of IEEE/Scopus indexing papers and intellectual property documentation.</span>
+</div>
+</div>
+<div class="w-0.5 h-6 bg-surface-variant ml-4"></div>
+<div class="flex items-center gap-space-md">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-code-sm text-code-sm font-bold">5</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-secondary font-bold">National Ideathons / Ré Summer Fellowship</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">National-level stage representation and fully sponsored summer research fellowship.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Callout Card -->
+<div class="p-space-lg rounded-xl bg-secondary text-on-secondary shadow-md flex flex-col sm:flex-row items-center gap-space-lg">
+<div class="w-16 h-16 rounded-full bg-on-secondary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[36px] text-surface">military_tech</span>
+</div>
+<div class="flex flex-col gap-space-xs text-center sm:text-left">
+<span class="font-headline-sm text-headline-sm font-bold">Institutional Commitment for Top 5 Teams</span>
+<p class="font-body-md text-body-md text-surface-container-low leading-relaxed">
+            Top 5 Teams receive Institutional Project Seed Funding, an official Ré Research Fellowship, Direct Fast-Track Entry into premier National Ideathons, and full semester faculty mentoring.
+          </p>
+</div>
+</div>
+</div>
+
+</section>
+
+<!-- 7. RULES & GUIDELINES (Interactive Accordions) -->
+<!-- ============================================================
+     SECTION: RULES & GUIDELINES — accordion (General Rules, Essential Items, Conduct, Event Guidelines)
+============================================================ -->
+<section class="w-full py-space-xl sm:py-[4rem] bg-surface-container-low" id="rules">
+<div class="max-w-[1280px] mx-auto px-margin sm:px-margin-lg flex flex-col gap-space-xl">
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-widest">Compliance &amp; Standards</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Rules &amp; Guidelines</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Participants are required to maintain strict adherence to academic rigor, integrity, and safety protocols throughout the 36 hours.
+        </p>
+</div>
+<div class="flex flex-col gap-space-sm" id="rules-accordion-container">
+<!-- Panel 1 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all">
+<button class="w-full p-space-md sm:p-space-lg flex items-center justify-between text-left hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="toggleAccordion(1)" type="button">
+<div class="flex items-center gap-space-md">
+<span class="material-symbols-outlined text-[24px] text-primary">rule</span>
+<span class="font-title-md text-title-md text-primary font-bold">1. General Rules &amp; Eligibility</span>
+</div>
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant transition-transform" id="acc-icon-1">add</span>
+</button>
+<div class="hidden px-space-md pb-space-lg sm:px-space-lg pt-space-xs text-on-surface-variant font-body-md text-body-md flex flex-col gap-space-xs" id="acc-content-1">
+<p class="">• Exclusively open to registered First-Year B.E. / B.Tech students of Kumaraguru College of Technology (Batch 2026–2030).</p>
+<p class="">• Teams must strictly consist of 4 to 5 members. Inter-departmental collaborations are strongly encouraged.</p>
+<p class="">• All proposed solutions must represent authentic, original research conceived for KII'26. Plagiarism in code, abstracts, or designs results in immediate disqualification.</p>
+<p class="">• A team can register under one primary Research Circle from the 7 circles provided.</p>
+</div>
+</div>
+<!-- Panel 2 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all">
+<button class="w-full p-space-md sm:p-space-lg flex items-center justify-between text-left hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="toggleAccordion(2)" type="button">
+<div class="flex items-center gap-space-md">
+<span class="material-symbols-outlined text-[24px] text-primary">inventory_2</span>
+<span class="font-title-md text-title-md text-primary font-bold">2. Essential Items to Bring</span>
+</div>
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant transition-transform" id="acc-icon-2">add</span>
+</button>
+<div class="hidden px-space-md pb-space-lg sm:px-space-lg pt-space-xs text-on-surface-variant font-body-md text-body-md flex flex-col gap-space-xs" id="acc-content-2">
+<p class="">• Valid Kumaraguru College of Technology Student Identity Card (Mandatory for entry and check-in).</p>
+<p class="">• Personal laptops, charging adapters, surge protectors, and 3-pin extension cords per team.</p>
+<p class="">• Basic electronic kits or specialized test components (if applicable to your selected circle statement).</p>
+<p class="">• Notebooks, pens, and personal essentials suited for the overnight campus session.</p>
+</div>
+</div>
+<!-- Panel 3 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all">
+<button class="w-full p-space-md sm:p-space-lg flex items-center justify-between text-left hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="toggleAccordion(3)" type="button">
+<div class="flex items-center gap-space-md">
+<span class="material-symbols-outlined text-[24px] text-primary">security</span>
+<span class="font-title-md text-title-md text-primary font-bold">3. Conduct &amp; Campus Discipline</span>
+</div>
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant transition-transform" id="acc-icon-3">add</span>
+</button>
+<div class="hidden px-space-md pb-space-lg sm:px-space-lg pt-space-xs text-on-surface-variant font-body-md text-body-md flex flex-col gap-space-xs" id="acc-content-3">
+<p class="">• 24/7 institutional campus security rules apply. Leaving the designated MGate hackathon perimeter without written authorization from organizers is strictly prohibited.</p>
+<p class="">• Zero tolerance for academic misconduct, unauthorized code reproduction, or disruption of fellow teams.</p>
+<p class="">• Respect for laboratory machinery, spatial infrastructure, and collegiate cleanliness protocols.</p>
+<p class="">• On-campus security personnel, faculty coordinators, and medical helpdesks are stationed 24/7.</p>
+</div>
+</div>
+<!-- Panel 4 -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden transition-all">
+<button class="w-full p-space-md sm:p-space-lg flex items-center justify-between text-left hover:bg-surface-container-low/50 transition-colors cursor-pointer" onclick="toggleAccordion(4)" type="button">
+<div class="flex items-center gap-space-md">
+<span class="material-symbols-outlined text-[24px] text-primary">assignment_turned_in</span>
+<span class="font-title-md text-title-md text-primary font-bold">4. Event Evaluation Guidelines</span>
+</div>
+<span class="material-symbols-outlined text-[24px] text-on-surface-variant transition-transform" id="acc-icon-4">add</span>
+</button>
+<div class="hidden px-space-md pb-space-lg sm:px-space-lg pt-space-xs text-on-surface-variant font-body-md text-body-md flex flex-col gap-space-xs" id="acc-content-4">
+<p class="">• Punctual attendance is mandatory for all three milestone reviews (Review 1, Review 2, Final Review).</p>
+<p class="">• Every team member must present during the final jury defense.</p>
+<p class="">• Standard institutional dress code must be strictly maintained across both days of the ideathon.</p>
+<p class="">• KII'26 delegate identification badges must be visible at all times within the venue.</p>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+
+<!-- 8. REGISTER / APPLY SECTION -->
+<!-- ============================================================
+     SECTION: REGISTER / APPLY — main CTA banner; button link comes from REGISTRATION_FORM_URL
+============================================================ -->
+<section class="w-full py-space-xl sm:py-[5rem] bg-gradient-to-r from-primary to-[#062354] text-on-primary" id="register">
+<div class="max-w-[1280px] mx-auto px-margin sm:px-margin-lg text-center flex flex-col items-center gap-space-md">
+<div class="inline-flex items-center gap-space-xs bg-secondary px-space-md py-space-xs rounded-full text-on-secondary">
+<span class="material-symbols-outlined text-[18px]">how_to_reg</span>
+<span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Candidate Portal</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl sm:text-[44px] text-surface font-bold tracking-tight max-w-3xl">
+        Ready to Begin Your Research Journey?
+      </h2>
+<p class="font-body-lg text-body-lg text-surface-variant max-w-2xl leading-relaxed">
+        Registration opens 28 September 2026. Gather your interdisciplinary cohort of 4–5 minds and prepare your abstracts.
+      </p>
+<div class="mt-space-sm flex flex-col sm:flex-row items-center gap-space-md">
+<a class="px-space-xl py-space-md bg-secondary text-on-secondary hover:bg-on-secondary-container transition-all rounded-xl font-headline-sm text-headline-sm font-bold shadow-xl active:scale-[0.98]" data-register-link="" href="https://forms.cloud.microsoft/r/8vwUR24YmA" rel="noopener" target="_blank">
+          Register for KII'26
+        </a>
+</div>
+<span class="font-label-sm text-label-sm text-surface-variant/80 mt-space-xs">
+        Exclusively for 1st Year B.E. / B.Tech students of Kumaraguru College of Technology.
+      </span>
+</div>
+
+</section>
+
+<!-- 9. CONTACT & CONNECT SECTION -->
+<!-- ============================================================
+     SECTION: CONTACT & FOLLOW US — team contacts + social links
+============================================================ -->
+<section class="w-full py-space-xl sm:py-[4rem] bg-surface" id="contact">
+<div class="max-w-[1280px] mx-auto px-margin sm:px-margin-lg flex flex-col gap-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg lg:gap-space-xl">
+<!-- Contact Col -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-widest">Inquiries &amp; Support</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Contact Coordinators</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Have questions regarding track selection, team structure, or lab availability? Reach out directly.
+            </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Student Lead</span>
+<span class="font-title-md text-title-md text-primary font-bold">Harish Raghav</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Lead Organizer, Ré Research Cell</span>
+<span class="font-code-sm text-code-sm text-on-surface mt-space-xs font-medium">+91 94883 12044</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Student Lead</span>
+<span class="font-title-md text-title-md text-primary font-bold">Ananya Sundaram</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Operations &amp; Logistics, Ré</span>
+<span class="font-code-sm text-code-sm text-on-surface mt-space-xs font-medium">+91 98421 55902</span>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs sm:col-span-2">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Faculty Secretariat</span>
+<span class="font-title-md text-title-md text-on-surface font-bold">Office of Research &amp; Innovation</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Kumaraguru College of Technology, Chinnavedampatti, Coimbatore - 641049</span>
+<div class="flex items-center gap-space-xs mt-space-xs text-primary font-medium font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+<span class="">re@kct.ac.in</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Follow Us Col -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-primary font-semibold uppercase tracking-widest">Online Community</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Digital Channels</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Stay synchronized with live updates, rubric releases, and research workshops.
+            </p>
+</div>
+<div class="flex flex-col gap-space-sm">
+<a class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex items-center justify-between" href="https://instagram.com" rel="noopener" target="_blank">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-[22px]">photo_camera</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Instagram</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">@re_kct</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">arrow_outward</span>
+</a>
+<a class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex items-center justify-between" href="https://linkedin.com" rel="noopener" target="_blank">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">share</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">LinkedIn</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">Ré – Centre for Exploratory Research</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">arrow_outward</span>
+</a>
+<a class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all flex items-center justify-between" href="https://research.kct.ac.in" rel="noopener" target="_blank">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[22px]">language</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface font-bold">Official Research Portal</span>
+<span class="font-code-sm text-code-sm text-on-surface-variant">research.kct.ac.in</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+
+<!-- Interactive Script for Accordion Behavior -->
+<script>
+    function toggleAccordion(id) {
+      const content = document.getElementById('acc-content-' + id);
+      const icon = document.getElementById('acc-icon-' + id);
+      if (!content || !icon) return;
+      const isHidden = content.classList.contains('hidden');
+      if (isHidden) {
+        content.classList.remove('hidden');
+        icon.textContent = 'remove';
+      } else {
+        content.classList.add('hidden');
+        icon.textContent = 'add';
+      }
+    }
+  
+
+    // --------------------------------------------------------------
+    // Research-circle "View Problem Statements" accordion.
+    // NOTE: this function was MISSING from the original Stitch export
+    // (the 7 circle-card buttons called it, but it didn't exist, so
+    // clicking them did nothing). Added here to make them work.
+    // --------------------------------------------------------------
+    function toggleCircleAccordion(id) {
+      const panel = document.getElementById(id + '-panel');
+      const icon = document.getElementById(id + '-icon');
+      const label = document.getElementById(id + '-label');
+      if (!panel) return;
+      const isHidden = panel.classList.contains('hidden');
+      if (isHidden) {
+        panel.classList.remove('hidden');
+        if (icon) icon.textContent = 'expand_less';
+        if (label) label.textContent = 'Hide Problem Statements';
+      } else {
+        panel.classList.add('hidden');
+        if (icon) icon.textContent = 'expand_more';
+        if (label) label.textContent = 'View Problem Statements';
+      }
+    }
+
+</script>
+<!-- ============================================================
+     SINGLE-SOURCE REGISTRATION LINK — see script below.
+     To change the Google/Microsoft Form link for the whole site,
+     edit the REGISTRATION_FORM_URL constant just below.
+============================================================ -->
+<script>
+    // ================================================================
+    // REGISTRATION FORM LINK — EDIT THIS ONE LINE TO UPDATE THE FORM
+    // ================================================================
+    // Every "Register" button on this page (navbar, mobile menu, hero,
+    // the big Register section, and the footer) reads its link from
+    // this single constant. Change the URL below and every button on
+    // the page updates automatically — no need to hunt through the
+    // HTML for each individual button.
+    const REGISTRATION_FORM_URL = "https://forms.cloud.microsoft/r/8vwUR24YmA";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll("[data-register-link]").forEach((el) => {
+        el.href = REGISTRATION_FORM_URL;
+      });
+    });
+
+</script>
+
+</div>
+</main>
+<!-- ============================================================
+     FOOTER — club/college info, nav links, accreditation blurb,
+     copyright, and social/quick links
+============================================================ -->
+<footer class="w-full bg-[#071A38] text-surface-variant pt-space-xl pb-space-lg"><div class="max-w-[1280px] mx-auto px-margin sm:px-margin-lg"><div class="grid grid-cols-1 md:grid-cols-12 gap-space-lg mb-space-xl"><div class="md:col-span-6 flex flex-col gap-space-sm"><div class="flex items-center gap-space-sm mb-space-xs"><span class="font-headline-sm text-headline-sm text-surface-container-lowest tracking-tight">KII'26</span><span class="font-label-sm text-label-sm text-tertiary-fixed-dim uppercase tracking-wider">Kumaraguru Intra Ideathon</span></div><p class="font-body-md text-body-md text-[#CBD5E1] max-w-lg leading-relaxed">Organized by Ré – Centre for Exploratory Research at Kumaraguru College of Technology (KCT). Nurturing institutional innovation, rigorous scientific methodology, and multidisciplinary student research.</p><div class="flex flex-col gap-space-xs mt-space-sm"><span class="font-label-sm text-label-sm text-[#94A3B8]">Institutional Campus:</span><span class="font-body-sm text-body-sm text-surface-container-lowest">Kumaraguru College of Technology, Chinnavedampatti, Coimbatore, Tamil Nadu 641049, India</span></div></div><div class="md:col-span-3 flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-surface-container-lowest">Navigation</span><div class="flex flex-col gap-space-xs"><a class="font-body-sm text-body-sm text-[#CBD5E1] hover:text-surface-container-lowest transition-colors" href="#hero">Event Home</a><a class="font-body-sm text-body-sm text-[#CBD5E1] hover:text-surface-container-lowest transition-colors" href="#about">About Ré &amp; KCT</a><a class="font-body-sm text-body-sm text-[#CBD5E1] hover:text-surface-container-lowest transition-colors" href="#circles">Research Domains</a><a class="font-body-sm text-body-sm text-[#CBD5E1] hover:text-surface-container-lowest transition-colors" href="#timeline">Evaluation Milestones</a><a class="font-body-sm text-body-sm text-[#CBD5E1] hover:text-surface-container-lowest transition-colors" href="#rules">Submission Rubric</a></div></div><div class="md:col-span-3 flex flex-col gap-space-sm"><span class="font-title-md text-title-md text-surface-container-lowest">Accreditation</span><p class="font-body-sm text-body-sm text-[#CBD5E1] leading-relaxed">An institutional benchmark event approved under Kumaraguru Research &amp; Innovation Framework. Recognized for academic merit and intra-collegiate grant funding eligibility.</p><div class="mt-space-sm"><a class="inline-flex items-center justify-center bg-secondary text-on-secondary px-space-md py-space-sm rounded-xl font-label-md text-label-md hover:bg-on-secondary-container transition-all" data-register-link="" href="https://forms.cloud.microsoft/r/8vwUR24YmA" rel="noopener" target="_blank">Register Idea</a></div></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-sm text-center md:text-left"><span class="font-body-sm text-body-sm text-[#94A3B8]">© 2026 Ré – Centre for Exploratory Research, Kumaraguru College of Technology. All rights reserved.</span><div class="flex items-center gap-space-md"><a class="font-label-sm text-label-sm text-[#CBD5E1] hover:text-surface-container-lowest transition-colors" href="#rules">Code of Conduct</a><a class="font-label-sm text-label-sm text-[#CBD5E1] hover:text-surface-container-lowest transition-colors" href="#contact">Helpdesk</a><a class="font-label-sm text-label-sm text-[#CBD5E1] hover:text-surface-container-lowest transition-colors" href="https://kct.ac.in" rel="noopener" target="_blank">KCT Portal</a></div></div></div>
+</footer>
+
+</body>
+</html>
