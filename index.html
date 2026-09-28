@@ -52,7 +52,9 @@
   <meta
     content="KII'26 — a 36-hour research &amp; innovation challenge for first-year students of Kumaraguru College of Technology, organized by Ré – Centre for Exploratory Research."
     name="description" />
-  <link href="favicon.png" rel="icon" type="image/png" />
+  <link href="favicon.ico" rel="icon" type="image/x-icon" />
+  <link href="favicon.png?v=2" rel="icon" type="image/png" sizes="32x32" />
+  <link href="favicon.png?v=2" rel="apple-touch-icon" />
   <link
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     rel="stylesheet">
@@ -99,11 +101,14 @@
     class="fixed top-0 left-0 right-0 z-40 bg-surface-container-lowest/95 backdrop-blur-md shadow-sm border-b border-outline-variant/30">
     <div class="h-16 sm:h-20 max-w-[1280px] mx-auto px-4 sm:px-8 flex items-center justify-between gap-4">
       <div class="flex items-center gap-3 shrink-0">
-        <img alt="KII'26 event logo" class="h-9 sm:h-10 w-auto object-contain" src="logo-navbar.png" />
-        <div class="flex flex-col">
-          <span class="font-bold text-primary text-lg sm:text-xl leading-tight">KII'26</span>
-          <span class="text-[11px] text-on-surface-variant font-medium tracking-wide uppercase">Ré · KCT</span>
-        </div>
+        <a class="flex items-center gap-3 hover:opacity-90 transition-opacity" href="#hero">
+          <img alt="Kumaraguru Institutions" class="h-8 sm:h-9 w-auto object-contain" src="logo-navbar.png" />
+          <div class="h-7 w-px bg-outline-variant/60 hidden sm:block"></div>
+          <div class="flex flex-col">
+            <span class="font-bold text-primary text-lg sm:text-xl leading-tight">KII'26</span>
+            <span class="text-[11px] text-on-surface-variant font-medium tracking-wide uppercase">Ré · KCT</span>
+          </div>
+        </a>
       </div>
       <nav class="hidden xl:flex items-center gap-6 text-sm font-medium">
         <a class="text-primary font-bold" href="#hero">Home</a>
