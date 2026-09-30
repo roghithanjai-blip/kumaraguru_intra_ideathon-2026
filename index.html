@@ -1288,416 +1288,333 @@
             "statements": [
                   {
                         "code": "KII26101",
-                        "title": "EV Range Prediction",
-                        "category": "EV Systems",
+                        "title": "Predictive Vehicle Fault Detection",
+                        "category": "Vehicle Diagnostics",
                         "complexity": "Machine Learning",
-                        "tag": "EV Systems · Machine Learning",
-                        "preview": "The range shown on an EV dashboard often drops much faster than expected on slopes, in traffic or with a heavy load, because a sim…",
-                        "desc": "The range shown on an EV dashboard often drops much faster than expected on slopes, in traffic or with a heavy load, because a simple battery-percentage estimate ignores real-world conditions. How can an EV predict its remaining range accurately under changing conditions?",
+                        "tag": "Vehicle Diagnostics · Machine Learning",
+                        "preview": "Vehicles constantly generate sensor data such as temperature, vibration, current and RPM, and small abnormalities in this data can…",
+                        "desc": "Vehicles constantly generate sensor data such as temperature, vibration, current and RPM, and small abnormalities in this data can indicate an upcoming component failure. How can this data be used to predict faults before they occur?",
                         "techScope": [
-                              "Build a model that uses battery level, speed, load, road gradient, temperature and driving behaviour to predict remaining range.",
-                              "Show how each factor affects the predicted range.",
-                              "Compare accuracy against a simple battery-percentage estimate."
+                              "Build a machine-learning model that analyses vehicle sensor data (temperature, vibration, current, RPM).",
+                              "Predict possible component faults before they occur and classify the fault type.",
+                              "Generate a confidence / health score for each prediction."
                         ],
                         "deliverables": [
-                              "Trained range-prediction model with an accuracy comparison against the battery-percentage baseline.",
-                              "Visualisation of how each factor changes the predicted range.",
-                              "Simple demo showing predicted range updating as conditions change."
+                              "Trained fault-prediction model with fault classification.",
+                              "Confidence / health score output.",
+                              "Simple dashboard presenting the results."
                         ],
                         "status": "final",
                         "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "CSE",
-                              "AI&DS",
-                              "Automobile",
-                              "EEE"
-                        ],
-                        "source_ref": "PS-1"
+                        "support": "Extend to real fleet or OBD-II data and turn the health score into an actual predictive-maintenance product."
                   },
                   {
                         "code": "KII26102",
-                        "title": "Battery Health and Remaining Life Estimation",
-                        "category": "Battery",
-                        "complexity": "Data Science",
-                        "tag": "Battery · Data Science",
-                        "preview": "The battery is the costliest part of an EV, yet its real health is unknown until it fails or is replaced.",
-                        "desc": "The battery is the costliest part of an EV, yet its real health is unknown until it fails or is replaced. How can we estimate an EV battery's State of Health and remaining useful life without dismantling it?",
-                        "techScope": [
-                              "Use voltage, current, temperature and charge-discharge history from public datasets.",
-                              "Build a model that predicts capacity fade and remaining cycles.",
-                              "Present the result as a simple health indicator."
-                        ],
-                        "deliverables": [
-                              "Trained State-of-Health and remaining-life model with validation results.",
-                              "Capacity-fade and remaining-cycle predictions on public dataset cells.",
-                              "Simple health-indicator display for a non-expert user."
-                        ],
-                        "status": "final",
-                        "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "EEE",
-                              "AI&DS",
-                              "CSE",
-                              "Mechatronics"
-                        ],
-                        "source_ref": "PS-2"
-                  },
-                  {
-                        "code": "KII26103",
-                        "title": "Early Warning of Battery Thermal Runaway",
-                        "category": "Battery Safety",
-                        "complexity": "Anomaly Detection",
-                        "tag": "Battery Safety · Anomaly Detection",
-                        "preview": "Battery fires usually develop over minutes or hours, but most systems react only after a fixed temperature limit is crossed.",
-                        "desc": "Battery fires usually develop over minutes or hours, but most systems react only after a fixed temperature limit is crossed. How can a battery pack detect a developing fault early enough to warn the user?",
-                        "techScope": [
-                              "Analyse voltage, temperature and current patterns from test data.",
-                              "Spot cell imbalance, abnormal heating and rising internal resistance.",
-                              "Raise graded warnings: Normal, Caution or Critical."
-                        ],
-                        "deliverables": [
-                              "Fault-detection model or rule set validated on test data.",
-                              "Graded warning output (Normal / Caution / Critical) with the signals that triggered it.",
-                              "Report on how early the warning arrives compared with a fixed-threshold alarm."
-                        ],
-                        "status": "final",
-                        "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "EEE",
-                              "AI&DS",
-                              "Mechatronics",
-                              "CSE"
-                        ],
-                        "source_ref": "PS-4"
-                  },
-                  {
-                        "code": "KII26104",
-                        "title": "Motor and Controller Fault Prediction",
-                        "category": "Powertrain",
-                        "complexity": "Predictive Maintenance",
-                        "tag": "Powertrain · Predictive Maintenance",
-                        "preview": "EV motors and controllers often fail suddenly, leaving vehicles stranded and repairs expensive.",
-                        "desc": "EV motors and controllers often fail suddenly, leaving vehicles stranded and repairs expensive. Can we detect a motor or controller fault before it becomes a major failure?",
-                        "techScope": [
-                              "Use temperature, vibration, current, voltage and RPM data.",
-                              "Train a model that classifies condition as Normal, Warning or Fault.",
-                              "Point to the probable faulty part."
-                        ],
-                        "deliverables": [
-                              "Trained condition-classification model with accuracy report.",
-                              "Probable-fault-location output for each Warning or Fault case.",
-                              "Demo showing condition status changing as fault data is introduced."
-                        ],
-                        "status": "final",
-                        "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "EEE",
-                              "Mechanical",
-                              "Automobile",
-                              "Mechatronics",
-                              "AI&DS"
-                        ],
-                        "source_ref": "PS-5"
-                  },
-                  {
-                        "code": "KII26105",
-                        "title": "Regenerative and Friction Braking Blend",
-                        "category": "Braking",
-                        "complexity": "Control Strategy",
-                        "tag": "Braking · Control Strategy",
-                        "preview": "Relying too much on friction brakes wastes energy, while too much regenerative braking can reduce stability or overcharge the battery.",
-                        "desc": "Relying too much on friction brakes wastes energy, while too much regenerative braking can reduce stability or overcharge the battery. How can an EV decide how much regenerative and how much mechanical braking to apply?",
-                        "techScope": [
-                              "Design a control strategy using speed, battery state of charge, road condition and braking demand.",
-                              "Test it in simulation over standard drive cycles.",
-                              "Evaluate energy recovered and safe stopping."
-                        ],
-                        "deliverables": [
-                              "Braking-blend controller model with its decision logic documented.",
-                              "Simulation results: energy recovered and stopping performance over drive cycles.",
-                              "Comparison against friction-only or fixed-ratio braking."
-                        ],
-                        "status": "final",
-                        "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "Automobile",
-                              "Mechanical",
-                              "EEE",
-                              "Mechatronics",
-                              "CSE"
-                        ],
-                        "source_ref": "PS-7"
-                  },
-                  {
-                        "code": "KII26106",
-                        "title": "Road Hazard Detection",
+                        "title": "Camera-Based Road Hazard Detection",
                         "category": "Computer Vision",
                         "complexity": "Road Safety",
                         "tag": "Computer Vision · Road Safety",
-                        "preview": "Potholes, speed breakers, debris and waterlogged patches on Indian roads damage vehicles and cause accidents, often with little warning.",
-                        "desc": "Potholes, speed breakers, debris and waterlogged patches on Indian roads damage vehicles and cause accidents, often with little warning. How can a vehicle detect and classify road hazards before reaching them?",
+                        "preview": "Potholes, cracks, debris and unexpected obstacles create real safety risks, and most navigation systems ignore the physical condit…",
+                        "desc": "Potholes, cracks, debris and unexpected obstacles create real safety risks, and most navigation systems ignore the physical condition of the road itself. How can a vehicle detect these hazards automatically?",
                         "techScope": [
-                              "Train a vision model on road footage to detect and classify hazards.",
-                              "Estimate hazard location and severity.",
-                              "Show how the vehicle could respond, for example by warning the driver or slowing down."
+                              "Build a computer-vision system that detects and classifies road hazards from vehicle-mounted camera footage.",
+                              "Aim for real-time or near-real-time performance.",
+                              "Report the hazard's location or severity."
                         ],
                         "deliverables": [
-                              "Trained hazard-detection model with detection accuracy report.",
-                              "Demo on road footage showing location and severity estimates.",
-                              "Illustration of the warning or slow-down response."
+                              "Trained detection and classification model for road hazards.",
+                              "Output showing hazard type along with location or severity.",
+                              "Demo on camera footage."
                         ],
                         "status": "final",
                         "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "CSE",
-                              "AI&DS",
-                              "Mechatronics",
-                              "Automobile"
+                        "support": "Fuse in IMU and wheel-speed data for severity estimation rather than detection alone, as explored in current road-hazard research."
+                  },
+                  {
+                        "code": "KII26103",
+                        "title": "Driver Behaviour & Drowsiness Scoring",
+                        "category": "Driver Safety",
+                        "complexity": "Machine Learning",
+                        "tag": "Driver Safety · Machine Learning",
+                        "preview": "Aggressive acceleration, sudden braking, irregular steering and driver fatigue all increase accident risk.",
+                        "desc": "Aggressive acceleration, sudden braking, irregular steering and driver fatigue all increase accident risk. How can driving be automatically assessed and scored?",
+                        "techScope": [
+                              "Analyse driving telemetry, or proxies such as steering behaviour and reaction time.",
+                              "Classify driving as normal, aggressive or fatigued.",
+                              "Detect and log individual events such as harsh braking or erratic steering."
                         ],
-                        "source_ref": "PS-9"
+                        "deliverables": [
+                              "Classification model for driver state.",
+                              "Driver behaviour score along with the detected events.",
+                              "Simple visual summary of a driving session."
+                        ],
+                        "status": "final",
+                        "requested_by": "Automotive Research Team",
+                        "support": "Explore non-camera drowsiness detection using steering behaviour and heart-rate data, a privacy-friendly and genuinely novel research direction."
+                  },
+                  {
+                        "code": "KII26104",
+                        "title": "EV Energy & Range Prediction",
+                        "category": "EV Systems",
+                        "complexity": "Machine Learning",
+                        "tag": "EV Systems · Machine Learning",
+                        "preview": "EV energy consumption changes with speed, acceleration, road slope, traffic and driving behaviour, so static range estimates are often unreliable.",
+                        "desc": "EV energy consumption changes with speed, acceleration, road slope, traffic and driving behaviour, so static range estimates are often unreliable. How can an EV predict its energy use accurately for a given trip?",
+                        "techScope": [
+                              "Build a model that predicts energy consumption for a given trip.",
+                              "Identify the factors causing excessive energy use.",
+                              "Provide efficiency recommendations to the driver."
+                        ],
+                        "deliverables": [
+                              "Trained energy / range prediction model.",
+                              "Visualisation of the factors affecting consumption.",
+                              "Efficiency recommendations based on the results."
+                        ],
+                        "status": "final",
+                        "requested_by": "Automotive Research Team",
+                        "support": "Scale into full energy-aware route optimisation, recommending the lowest-energy route rather than just the shortest one."
+                  },
+                  {
+                        "code": "KII26105",
+                        "title": "Autonomous Path Planning (Simulation)",
+                        "category": "Autonomous Vehicles",
+                        "complexity": "Simulation",
+                        "tag": "Autonomous Vehicles · Simulation",
+                        "preview": "An autonomous vehicle must choose a safe path around obstacles while reaching its destination efficiently.",
+                        "desc": "An autonomous vehicle must choose a safe path around obstacles while reaching its destination efficiently. How can a vehicle plan a collision-free route?",
+                        "techScope": [
+                              "Work in a simulated grid or arena with obstacles.",
+                              "Develop an algorithm that generates a collision-free and efficient path from a start point to a goal.",
+                              "Demonstrate obstacle avoidance during the vehicle's movement."
+                        ],
+                        "deliverables": [
+                              "Working path-planning algorithm.",
+                              "Simulation of the vehicle moving from start to goal.",
+                              "Demonstration of obstacle avoidance."
+                        ],
+                        "status": "final",
+                        "requested_by": "Automotive Research Team",
+                        "support": "Add uncertainty, moving obstacles and real vehicle-dynamics constraints such as turning radius and braking distance."
+                  },
+                  {
+                        "code": "KII26106",
+                        "title": "Intersection Collision-Risk Prediction",
+                        "category": "Vehicle Safety",
+                        "complexity": "Software",
+                        "tag": "Vehicle Safety · Software",
+                        "preview": "Many road accidents occur at intersections because vehicles approaching from different directions have limited visibility of each other's paths.",
+                        "desc": "Many road accidents occur at intersections because vehicles approaching from different directions have limited visibility of each other's paths. How can drivers be warned early enough to avoid a collision?",
+                        "techScope": [
+                              "Take the positions and speeds of two or more vehicles as input.",
+                              "Calculate Time-to-Collision (TTC).",
+                              "Raise an early warning before either driver needs to brake hard."
+                        ],
+                        "deliverables": [
+                              "TTC calculation and risk-prediction system.",
+                              "Early-warning output.",
+                              "Simulation or demo of vehicles approaching an intersection."
+                        ],
+                        "status": "final",
+                        "requested_by": "Automotive Research Team",
+                        "support": "Extend to multi-vehicle trajectory prediction at real intersections using traffic-camera or simulated datasets."
                   },
                   {
                         "code": "KII26107",
-                        "title": "Vehicle Safety Decision System",
-                        "category": "Functional Safety",
-                        "complexity": "Decision Systems",
-                        "tag": "Functional Safety · Decision Systems",
-                        "preview": "A vehicle with failing sensors, a low battery or an obstacle ahead must know when to continue, slow down or stop.",
-                        "desc": "A vehicle with failing sensors, a low battery or an obstacle ahead must know when to continue, slow down or stop. How can a vehicle decide safely between GO, SLOW, STOP and SAFE MODE?",
+                        "title": "Road-Condition Mapping from Crowd Data",
+                        "category": "Smart Mobility",
+                        "complexity": "Data Fusion",
+                        "tag": "Smart Mobility · Data Fusion",
+                        "preview": "Every vehicle that drives over a road experiences vibrations that reflect the road's condition.",
+                        "desc": "Every vehicle that drives over a road experiences vibrations that reflect the road's condition. How can this be used to monitor roads without expensive road-monitoring equipment?",
                         "techScope": [
-                              "Combine obstacle distance, sensor health, battery condition, slope and vehicle health into one decision system.",
-                              "Output one of GO, SLOW, STOP or SAFE MODE.",
-                              "Test in simulated failure scenarios."
+                              "Combine noisy vibration and GPS traces from several simulated vehicles.",
+                              "Build a shared, continuously updated map of road roughness and potholes.",
+                              "Handle noise and inconsistencies between vehicles."
                         ],
                         "deliverables": [
-                              "Working decision system with documented rules or model.",
-                              "Test-scenario table showing inputs and the resulting decision.",
-                              "Demo of the vehicle response under sensor, battery and obstacle failures."
+                              "Data-fusion model or pipeline.",
+                              "Map showing road roughness and potholes.",
+                              "Demo of the map updating as new vehicle data arrives."
                         ],
                         "status": "final",
                         "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "All branches"
-                        ],
-                        "source_ref": "PS-11"
+                        "support": "Move to a real IMU+GPS logger fleet to build a genuine smart-city-grade pothole map, a strong automotive + IoT research angle."
                   },
                   {
                         "code": "KII26108",
-                        "title": "GPS-Free Localization",
-                        "category": "Autonomy",
-                        "complexity": "Sensor Fusion",
-                        "tag": "Autonomy · Sensor Fusion",
-                        "preview": "GPS fails in parking structures, tunnels and dense areas, yet a vehicle still needs to know where it is.",
-                        "desc": "GPS fails in parking structures, tunnels and dense areas, yet a vehicle still needs to know where it is. How can a vehicle locate itself accurately with low-cost sensors when GPS is unavailable?",
+                        "title": "Software-Defined Vehicle (SDV) Feature Simulator",
+                        "category": "Software-Defined Vehicles",
+                        "complexity": "Embedded Software",
+                        "tag": "Software-Defined Vehicles · Embedded Software",
+                        "preview": "Automakers are rebuilding their platforms around a software-first approach, making software-defined vehicle architectures the indu…",
+                        "desc": "Automakers are rebuilding their platforms around a software-first approach, making software-defined vehicle architectures the industry-mainstream direction. How can new features be delivered to a vehicle safely?",
                         "techScope": [
-                              "Fuse IMU, wheel-encoder and camera data to estimate position.",
-                              "Compare each sensor used alone with the fused result.",
-                              "Quantify the improvement from fusion."
+                              "Simulate an over-the-air (OTA) update system.",
+                              "Push a new \"feature\" to a virtual ECU and version-check it.",
+                              "Safely roll back if the update fails."
                         ],
                         "deliverables": [
-                              "Sensor-fusion localization pipeline.",
-                              "Error comparison: each sensor alone versus fused estimate.",
-                              "Plot of estimated versus true trajectory."
+                              "Working OTA update simulation.",
+                              "Version-checking and rollback mechanism.",
+                              "Demo of both a successful update and a failed update with rollback."
                         ],
                         "status": "final",
                         "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "Mechatronics",
-                              "EEE",
-                              "CSE",
-                              "AI&DS",
-                              "Automobile"
-                        ],
-                        "source_ref": "PS-13"
+                        "support": "A genuine research area in update-integrity, staged rollouts and rollback-safety for real automotive software stacks."
                   },
                   {
                         "code": "KII26109",
-                        "title": "Vehicle Network Intrusion Detection",
-                        "category": "Vehicle Cybersecurity",
+                        "title": "In-Vehicle Network (CAN Bus) Security Testbed",
+                        "category": "Automotive Cybersecurity",
                         "complexity": "Embedded Systems",
-                        "tag": "Vehicle Cybersecurity · Embedded Systems",
-                        "preview": "Vehicle networks were designed for reliability, not security, so a spoofed message could trigger dangerous behaviour.",
-                        "desc": "Vehicle networks were designed for reliability, not security, so a spoofed message could trigger dangerous behaviour. How can a vehicle detect fake messages on its internal network?",
+                        "tag": "Automotive Cybersecurity · Embedded Systems",
+                        "preview": "A modern connected car can run dozens of ECUs and huge amounts of code, and documented real-world attacks have shown how exposed t…",
+                        "desc": "A modern connected car can run dozens of ECUs and huge amounts of code, and documented real-world attacks have shown how exposed the in-vehicle network can be to a remote attacker. How can such attacks be detected?",
                         "techScope": [
-                              "Build a small CAN network with microcontroller nodes.",
-                              "Inject spoofed messages into the network.",
-                              "Design a simple intrusion-detection filter that flags them."
+                              "Build a small CAN-bus network using microcontroller nodes.",
+                              "Simulate a spoofed message being injected into the network.",
+                              "Design a simple intrusion-detection filter that flags it."
                         ],
                         "deliverables": [
-                              "Working CAN network prototype with multiple nodes.",
-                              "Intrusion-detection filter with detection and false-alarm results.",
-                              "Demo of spoofed messages being flagged in real time."
+                              "Working CAN-bus testbed.",
+                              "Demonstration of a spoofing attack.",
+                              "Intrusion-detection filter that flags the spoofed message."
                         ],
                         "status": "final",
                         "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "CSE",
-                              "EEE",
-                              "Mechatronics"
-                        ],
-                        "source_ref": "PS-17"
+                        "support": "A genuine automotive-cybersecurity research line, increasingly critical as vehicles connect further via V2X and cloud services."
                   },
                   {
                         "code": "KII26110",
-                        "title": "Low-Cost Battery Monitor",
-                        "category": "Battery",
+                        "title": "Low-Cost EV Battery Health Monitor",
+                        "category": "EV Systems",
                         "complexity": "Embedded Hardware",
-                        "tag": "Battery · Embedded Hardware",
-                        "preview": "Many small EVs and e-bikes have no reliable way to watch cell condition, so overheating and imbalance go unnoticed.",
-                        "desc": "Many small EVs and e-bikes have no reliable way to watch cell condition, so overheating and imbalance go unnoticed. How can a low-cost system monitor a battery and warn of unsafe conditions?",
+                        "tag": "EV Systems · Embedded Hardware",
+                        "preview": "Battery temperature, voltage imbalance and abnormal current directly affect an EV battery's safety and lifetime.",
+                        "desc": "Battery temperature, voltage imbalance and abnormal current directly affect an EV battery's safety and lifetime. How can battery condition be monitored at low cost?",
                         "techScope": [
-                              "Build an embedded monitor measuring cell voltage, current and temperature.",
-                              "Detect abnormal conditions.",
-                              "Show the result on a display or through an alert."
+                              "Design a low-cost embedded system that monitors cell voltage, current and temperature.",
+                              "Identify abnormal operating conditions.",
+                              "Show the result on a simple display or alert system."
                         ],
                         "deliverables": [
-                              "Working battery-monitor hardware prototype.",
-                              "Test results showing detection of abnormal voltage, current or temperature.",
-                              "Demo of the display or alert response."
+                              "Working hardware prototype.",
+                              "Detection of abnormal voltage, current or temperature conditions.",
+                              "Display or alert showing battery status."
                         ],
                         "status": "final",
                         "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "EEE",
-                              "Mechatronics"
-                        ],
-                        "source_ref": "PS-21"
+                        "support": "Grow toward full SOC/SOH estimation and, eventually, a complete Battery Management System (BMS)."
                   },
                   {
                         "code": "KII26111",
-                        "title": "Motor and Controller Efficiency Bench",
-                        "category": "Powertrain",
-                        "complexity": "Test Bench",
-                        "tag": "Powertrain · Test Bench",
-                        "preview": "Even a good motor wastes energy when the controller does not suit the operating point, and that shortens EV range.",
-                        "desc": "Even a good motor wastes energy when the controller does not suit the operating point, and that shortens EV range. Where does a motor drive lose energy, and how can we reduce it?",
+                        "title": "Motor Fault Detection Rig",
+                        "category": "Electrical Machines",
+                        "complexity": "Embedded Hardware",
+                        "tag": "Electrical Machines · Embedded Hardware",
+                        "preview": "Abnormal motor vibration, temperature or current can indicate mechanical or electrical faults developing inside a motor.",
+                        "desc": "Abnormal motor vibration, temperature or current can indicate mechanical or electrical faults developing inside a motor. How can these faults be caught early?",
                         "techScope": [
-                              "Build a small load bench measuring input and output power across speed and torque.",
-                              "Plot an efficiency map.",
-                              "Test one control improvement."
+                              "Build a prototype using sensors and a microcontroller.",
+                              "Measure a small motor's operating parameters.",
+                              "Detect abnormal conditions."
                         ],
                         "deliverables": [
-                              "Working load bench with measurement setup.",
-                              "Efficiency map of the motor and controller.",
-                              "Before/after result for the tested control improvement."
+                              "Working motor-monitoring rig.",
+                              "Detection of abnormal vibration, temperature or current.",
+                              "Clear fault indication."
                         ],
                         "status": "final",
                         "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "EEE",
-                              "Mechanical",
-                              "Automobile"
-                        ],
-                        "source_ref": "PS-25"
+                        "support": "Extend toward sensorless fault estimation that infers faults from existing electrical signals rather than adding sensors."
                   },
                   {
                         "code": "KII26112",
-                        "title": "Wheel-Slip and Traction Control",
-                        "category": "Vehicle Dynamics",
+                        "title": "Adaptive Automotive Lighting Prototype",
+                        "category": "Automotive Lighting",
                         "complexity": "Mechatronics",
-                        "tag": "Vehicle Dynamics · Mechatronics",
-                        "preview": "On wet or loose roads, wheels slip during acceleration and braking, and the driver loses control.",
-                        "desc": "On wet or loose roads, wheels slip during acceleration and braking, and the driver loses control. How can a vehicle detect slip and restore grip automatically?",
+                        "tag": "Automotive Lighting · Mechatronics",
+                        "preview": "Conventional headlights do not automatically adapt to changing road and environmental conditions, which can reduce visibility exac…",
+                        "desc": "Conventional headlights do not automatically adapt to changing road and environmental conditions, which can reduce visibility exactly when it matters most. How can headlights respond to their surroundings?",
                         "techScope": [
-                              "Build a miniature rig with wheel-speed sensors.",
-                              "Detect slip from wheel-speed differences.",
-                              "Reduce motor torque in a closed loop to restore grip."
+                              "Build a prototype lighting system with a model headlight.",
+                              "Use ambient-light and obstacle sensors.",
+                              "Automatically adjust the beam behaviour."
                         ],
                         "deliverables": [
-                              "Working miniature traction-control rig.",
-                              "Slip-detection and torque-reduction test results.",
-                              "Comparison of behaviour with and without the control loop."
+                              "Working prototype with sensors and a model headlight.",
+                              "Automatic beam adjustment in response to conditions.",
+                              "Demo under changing light and obstacle conditions."
                         ],
                         "status": "final",
                         "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "Mechanical",
-                              "Mechatronics",
-                              "EEE"
-                        ],
-                        "source_ref": "PS-27"
+                        "support": "Pair with the road-hazard-detection software track to make the lighting genuinely context-aware, not just light-level-aware."
                   },
                   {
                         "code": "KII26113",
-                        "title": "Adaptive Suspension",
-                        "category": "Suspension",
-                        "complexity": "Adaptive Control",
-                        "tag": "Suspension · Adaptive Control",
-                        "preview": "A fixed suspension cannot be both comfortable over potholes and stable at speed.",
-                        "desc": "A fixed suspension cannot be both comfortable over potholes and stable at speed. How can a suspension adapt automatically to changing road conditions?",
+                        "title": "Smart Collision-Warning Prototype",
+                        "category": "Vehicle Safety",
+                        "complexity": "Embedded Hardware",
+                        "tag": "Vehicle Safety · Embedded Hardware",
+                        "preview": "Drivers may fail to react quickly enough when an obstacle suddenly appears ahead of the vehicle.",
+                        "desc": "Drivers may fail to react quickly enough when an obstacle suddenly appears ahead of the vehicle. How can the driver be warned in time?",
                         "techScope": [
-                              "Build a quarter-car rig with an accelerometer.",
-                              "Use an adjustable damper that switches between soft and firm settings.",
-                              "Choose the setting automatically from the road condition."
+                              "Build an embedded prototype using ultrasonic or IR distance sensors.",
+                              "Detect an approaching obstacle.",
+                              "Provide a graded warning based on the measured distance and a configurable safety threshold."
                         ],
                         "deliverables": [
-                              "Working quarter-car rig with adjustable damping.",
-                              "Ride-comfort and stability comparison of soft, firm and adaptive modes.",
-                              "Demo of automatic switching on different road inputs."
+                              "Working prototype with distance sensing.",
+                              "Graded warning output.",
+                              "Configurable safety threshold."
                         ],
                         "status": "final",
                         "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "Mechanical",
-                              "Automobile",
-                              "Mechatronics",
-                              "AI&DS"
-                        ],
-                        "source_ref": "PS-29"
+                        "support": "Extend into a blind-spot warning system for two-wheelers, a strong and currently underserved safety niche."
                   },
                   {
                         "code": "KII26114",
-                        "title": "Collision and Blind-Spot Warning for Two-Wheelers",
-                        "category": "Rider Safety",
-                        "complexity": "Embedded Hardware",
-                        "tag": "Rider Safety · Embedded Hardware",
-                        "preview": "Two-wheeler riders cannot see vehicles beside or behind them and have very little time to react.",
-                        "desc": "Two-wheeler riders cannot see vehicles beside or behind them and have very little time to react. How can a low-cost device warn a rider of approaching obstacles?",
+                        "title": "Regenerative Braking Energy-Recovery Rig",
+                        "category": "EV Systems",
+                        "complexity": "Power Electronics",
+                        "tag": "EV Systems · Power Electronics",
+                        "preview": "During braking, a vehicle's kinetic energy is normally dissipated as heat and wasted, while EVs can recover part of this energy electrically instead.",
+                        "desc": "During braking, a vehicle's kinetic energy is normally dissipated as heat and wasted, while EVs can recover part of this energy electrically instead. How can this recovery be demonstrated and measured?",
                         "techScope": [
-                              "Build an embedded prototype using ultrasonic or IR sensors.",
-                              "Give graded warnings based on distance.",
-                              "Make the safety threshold configurable."
+                              "Build a small-scale prototype using a motor and generator / regenerative circuit.",
+                              "Demonstrate energy recovery during deceleration.",
+                              "Measure the recovered electrical energy."
                         ],
                         "deliverables": [
-                              "Working embedded warning prototype.",
-                              "Test results on detection range and warning accuracy.",
-                              "Demo of graded warnings with an adjustable threshold."
+                              "Working regenerative-braking prototype.",
+                              "Measurement of recovered electrical energy.",
+                              "Demo of energy recovery during deceleration."
                         ],
                         "status": "final",
                         "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "EEE",
-                              "Mechatronics",
-                              "Mechanical",
-                              "Automobile"
-                        ],
-                        "source_ref": "PS-34"
+                        "support": "Feed the recovered-energy data back into the EV energy-prediction software track for a combined hardware + software system."
                   },
                   {
                         "code": "KII26115",
-                        "title": "Vehicle-to-Grid Charger",
-                        "category": "Power Electronics",
-                        "complexity": "Grid Integration",
-                        "tag": "Power Electronics · Grid Integration",
-                        "preview": "Parked EVs hold a large amount of unused energy that could support the power grid at peak demand.",
-                        "desc": "Parked EVs hold a large amount of unused energy that could support the power grid at peak demand. How can an EV battery both charge from, and return power to, a grid or load?",
+                        "title": "Short-Range Vehicle-to-Vehicle Hazard Alert",
+                        "category": "Connected Vehicles",
+                        "complexity": "Wireless Communication",
+                        "tag": "Connected Vehicles · Wireless Communication",
+                        "preview": "A vehicle that encounters a sudden hazard could warn approaching vehicles behind it, but relying on cellular or cloud connectivity…",
+                        "desc": "A vehicle that encounters a sudden hazard could warn approaching vehicles behind it, but relying on cellular or cloud connectivity introduces latency and infrastructure dependency. How can vehicles warn each other directly?",
                         "techScope": [
-                              "Build a small bidirectional charger circuit.",
-                              "Charge a battery and discharge it to a load on command.",
-                              "Measure the efficiency of both directions."
+                              "Build two small vehicle rigs.",
+                              "Communicate directly over LoRa or ESP-NOW.",
+                              "One rig broadcasts a pothole / obstacle alert and the other reacts to it."
                         ],
                         "deliverables": [
-                              "Working bidirectional charger prototype.",
-                              "Demonstration of charging and discharging on command.",
-                              "Efficiency measurements for charge and discharge modes."
+                              "Two working vehicle rigs with direct wireless communication.",
+                              "Hazard alert broadcast from one rig.",
+                              "Reaction from the receiving rig."
                         ],
                         "status": "final",
                         "requested_by": "Automotive Research Team",
-                        "branches": [
-                              "EEE",
-                              "Automobile"
-                        ],
-                        "source_ref": "PS-39"
+                        "support": "Real vehicle-to-vehicle communication without cellular dependency, with a clean path toward a genuinely publishable mini-project."
                   }
             ]
       },
