@@ -1,105 +1,121 @@
-# KII'26 Website — README
+# Kumaraguru Intra Ideathon'26 (KII'26) — Problem Statement Portal & Website
 
-This is a single self-contained page (`index.html`) built from your Stitch
-design. No build step, no framework, no install — just HTML, Tailwind
-(loaded from a CDN), and a little vanilla JavaScript.
+Static, responsive, offline-ready Problem Statement Portal and Landing Page for **Kumaraguru Intra Ideathon'26**, organized by **Ré – Centre for Exploratory Research**, Kumaraguru College of Technology.
 
-## Files in this folder
+---
 
-| File | What it is |
-|---|---|
-| `index.html` | The whole website |
-| `favicon.png` | Placeholder browser-tab icon — **replace with your real logo** |
-| `logo-navbar.png` | Placeholder logo shown top-left in the navbar — **replace** |
-| `hero-banner.png` | Placeholder graphic shown in the hero section — **replace** |
-| `DESIGN.md` | Stitch's design-system reference (colors, type) — for reference only, not used by the live page |
+## 1. Domain Problem Statement Counts
 
-To swap an image, just replace the file with your real one **using the exact
-same filename**. No code changes needed.
+The portal hosts exactly **75 problem statements across 5 research domains** (exactly 15 challenges per domain):
 
-## Two bugs from the Stitch export that were fixed here
+| Domain | Problem Statement Range | Count | Primary Requester |
+|---|---|---|---|
+| **Automotive** | `KII26101` – `KII26115` | **15** | Automotive Research Team |
+| **Bioscience** | `KII26201` – `KII26215` | **15** | Ré Bioscience |
+| **Education** | `KII26301` – `KII26315` | **15** | Ré Research Cell & Faculty |
+| **Renewable Energy** | `KII26401` – `KII26415` | **15** | Ré Forum |
+| **Textile** | `KII26501` – `KII26515` | **15** | Ré Research Cell & Faculty |
+| **Total** | | **75** | |
 
-1. **The "View Problem Statements" buttons on all 7 Research Circle cards
-   did nothing.** Stitch generated buttons that called a JavaScript function
-   (`toggleCircleAccordion`) that was never actually defined anywhere in the
-   exported code. This is now fixed near the bottom of the file (search for
-   `toggleCircleAccordion`).
-2. **The page's `<head>` was empty** — all the font links, Tailwind config,
-   and styles had been dumped into the `<body>` instead. Browsers mostly
-   tolerate this, but it's invalid and can cause flaky font/style loading.
-   Fixed — everything now lives in a proper `<head>`.
+*Special Statuses in Textile:*
+- `KII26511` – `KII26514`: `draft` (rendered with amber *"Draft — pending confirmation"* badge)
+- `KII26515`: `placeholder` (rendered with dashed border and *"Statement awaiting submission"* note)
 
-## How to edit things
+---
 
-Everything is plain text inside the HTML — search for the words you see on
-the page and edit them directly. A few things are made deliberately easy to
-find:
+## 2. Project Architecture & Files
 
-- **Add the 105 problem statements**: search the file for `PROBLEM STATEMENT`.
-  Each of the 105 placeholder slots (15 per Research Circle × 7 circles) has
-  its own comment right above it, e.g.:
-  ```html
-  <!-- PROBLEM STATEMENT 1 — replace title + description below with the real one -->
-  <div ...><span ...>Problem Statement 1 — [Title placeholder]</span>
-  <span ...>[Add problem statement description here]</span></div>
-  ```
-  Just replace `[Title placeholder]` and `[Add problem statement description
-  here]` with the real text for that slot.
-
-- **Change the registration form link**: search for `REGISTRATION_FORM_URL`
-  near the bottom of the file. It's one line:
-  ```js
-  const REGISTRATION_FORM_URL = "https://forms.cloud.microsoft/r/8vwUR24YmA";
-  ```
-  Change the URL and **all 5** Register buttons on the page (navbar, mobile
-  menu, hero, the big Register section, footer) update automatically.
-
-- **Every major section is labeled** with a big comment block, e.g.:
-  ```html
-  <!-- ============================================================
-       SECTION: RESEARCH CIRCLES — 7 circles x 15 problem-statement
-       placeholders (105 total)
-  ============================================================ -->
-  ```
-  Search for `SECTION:` to jump between them, or just use your editor's
-  outline/minimap.
-
-## Previewing locally before you deploy
-
-You don't need a server for this, but if double-clicking the file causes any
-issues, run this from inside the folder and open the printed address:
-
-```bash
-python3 -m http.server 8000
+```
+├── index.html                  # Portal Vite entry point
+├── landing.html                # Original Ideathon landing page (preserved & linked)
+├── package.json                # Project dependencies & scripts
+├── vite.config.js              # Vite bundler configuration
+├── scripts/
+│   └── validate.js             # Data validation script (npm run validate)
+├── public/                     # Static assets (favicons, logos, landing.html)
+└── src/
+    ├── main.jsx                # React root mount
+    ├── App.jsx                 # Portal application layout & state
+    ├── styles.css              # Custom styling, design tokens & print stylesheet
+    ├── components/
+    │   ├── DomainTabs.jsx      # Domain tabs with icons & counts (15 each)
+    │   ├── ProblemCard.jsx     # Section 3 detail card & summary list card
+    │   ├── SearchBar.jsx       # Multi-field search across code, title, scope, etc.
+    │   ├── TagFilter.jsx       # Topic tag filter chips
+    │   └── BookmarksPanel.jsx  # Saved problems drawer (persisted in localStorage)
+    └── data/
+        └── problems.json       # All 75 problem statement records (parsed verbatim)
 ```
 
-## Deploying to Vercel
+---
 
-Two ways to do it — pick whichever is easier for your team:
+## 3. Quickstart & Run Instructions
 
-### Option A — Drag and drop (fastest, good for a one-off)
-1. Go to [vercel.com](https://vercel.com) and sign in (GitHub/Google/email).
-2. From the dashboard, choose **Add New → Project**, then look for the
-   drag-and-drop upload option.
-3. Drag this whole folder in and deploy.
-4. Vercel gives you a live URL immediately (e.g. `kii26.vercel.app`), and
-   you can attach a custom domain later from the project settings if the
-   college gives you one.
+### Prerequisites
+- Node.js (v18+ recommended; tested on v24)
+- npm (v9+; tested on v11)
 
-### Option B — Connect a GitHub repo (recommended for a club — lets next
-year's team update the site easily, and every push auto-deploys)
-1. Create a new GitHub repository and push this folder to it.
-2. In Vercel: **Add New → Project → Import Git Repository**, select the repo.
-3. Framework preset: choose **Other** (it's a plain static site, no build
-   command needed).
-4. Deploy. From then on, any push to the repo's main branch redeploys the
-   site automatically.
+### Development Server
+Start the local Vite development server:
+```bash
+npm run dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-Either way, hosting is free on Vercel's default plan for a site like this.
+### Data Validation
+Run the built-in validation script to verify that all 75 problem statements strictly adhere to the schema, that every domain has exactly 15 records, that codes are unique, and that no required fields are missing:
+```bash
+npm run validate
+```
 
-## Next steps / open items
+### Production Build
+Compile and bundle the production-ready static assets:
+```bash
+npm run build
+```
+The output will be placed in the `dist/` directory, ready to deploy to Vercel, Netlify, GitHub Pages, or any static web server.
 
-- [ ] Swap `favicon.png`, `logo-navbar.png`, `hero-banner.png` for real assets
-- [ ] Fill in all 105 problem statements (search `PROBLEM STATEMENT`)
-- [ ] Double-check the registration form link is the final one before go-live
-- [ ] Deploy to Vercel and share the live link
+### Local Preview of Production Bundle
+Preview the production build locally:
+```bash
+npm run preview
+```
+Open [http://localhost:4173](http://localhost:4173).
+
+---
+
+## 4. Key Portal Features
+
+1. **Section 3 Compliant Card Layout**:
+   - Monospace Navy Code Badge (`Problem statement code: KII26xxx`)
+   - Tag Chip & Draft/Placeholder Indicators
+   - Large Bold Navy Title (`#0B2A6B`)
+   - `Requested by:` metadata line
+   - `CONTEXT & CORE CHALLENGE` rounded box with Crimson Info Icon & heading
+   - Two-column responsive row:
+     - Left: `TECHNICAL SCOPE & REQUIREMENTS` (bulleted list)
+     - Right: `EXPECTED DELIVERABLES` (paragraphs, grey text)
+   - Suggested Branches chips (where applicable, e.g. Automotive)
+   - Sticky footer with Bookmark toggle pill
+
+2. **Search & Tag Filtering**:
+   - Deep search across code, title, tag, context, scope, and deliverables
+   - Toggle to search within the active domain or across all 75 statements
+   - Dynamic tag filter chips derived from active domain problem tags
+
+3. **Persistent Bookmarks**:
+   - Bookmark any problem statement from summary or detail views
+   - Saved statements persist across browser sessions using `localStorage`
+   - Slide-over "Saved" panel with count, item preview, and "Clear all" action
+
+4. **Deep Linking via URL Hash**:
+   - Direct URLs like `http://localhost:5173/#KII26101` open the problem detail view directly
+   - Browser forward/backward navigation handles history states seamlessly
+
+5. **Print & PDF Export**:
+   - Dedicated `@media print` stylesheet formatted to print one clean problem statement card per page
+   - Dedicated "Print / Save PDF" action button in detail view
+
+6. **Landing Page Integration**:
+   - The original event landing page remains intact and accessible at `/landing.html`
+   - The portal header includes a direct navigation link back to the Ideathon Home page

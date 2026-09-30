@@ -1,0 +1,1676 @@
+{
+  "automotive": [
+    {
+      "code": "KII26101",
+      "title": "EV Range Prediction",
+      "category": "EV Systems",
+      "complexity": "Machine Learning",
+      "tag": "EV Systems · Machine Learning",
+      "preview": "The range shown on an EV dashboard often drops much faster than expected on slopes, in traffic or with a heavy load, because a sim…",
+      "desc": "The range shown on an EV dashboard often drops much faster than expected on slopes, in traffic or with a heavy load, because a simple battery-percentage estimate ignores real-world conditions. How can an EV predict its remaining range accurately under changing conditions?",
+      "techScope": [
+        "Build a model that uses battery level, speed, load, road gradient, temperature and driving behaviour to predict remaining range.",
+        "Show how each factor affects the predicted range.",
+        "Compare accuracy against a simple battery-percentage estimate."
+      ],
+      "deliverables": [
+        "Trained range-prediction model with an accuracy comparison against the battery-percentage baseline.",
+        "Visualisation of how each factor changes the predicted range.",
+        "Simple demo showing predicted range updating as conditions change."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "CSE",
+        "AI&DS",
+        "Automobile",
+        "EEE"
+      ],
+      "source_ref": "PS-1"
+    },
+    {
+      "code": "KII26102",
+      "title": "Battery Health and Remaining Life Estimation",
+      "category": "Battery",
+      "complexity": "Data Science",
+      "tag": "Battery · Data Science",
+      "preview": "The battery is the costliest part of an EV, yet its real health is unknown until it fails or is replaced.",
+      "desc": "The battery is the costliest part of an EV, yet its real health is unknown until it fails or is replaced. How can we estimate an EV battery's State of Health and remaining useful life without dismantling it?",
+      "techScope": [
+        "Use voltage, current, temperature and charge-discharge history from public datasets.",
+        "Build a model that predicts capacity fade and remaining cycles.",
+        "Present the result as a simple health indicator."
+      ],
+      "deliverables": [
+        "Trained State-of-Health and remaining-life model with validation results.",
+        "Capacity-fade and remaining-cycle predictions on public dataset cells.",
+        "Simple health-indicator display for a non-expert user."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "EEE",
+        "AI&DS",
+        "CSE",
+        "Mechatronics"
+      ],
+      "source_ref": "PS-2"
+    },
+    {
+      "code": "KII26103",
+      "title": "Early Warning of Battery Thermal Runaway",
+      "category": "Battery Safety",
+      "complexity": "Anomaly Detection",
+      "tag": "Battery Safety · Anomaly Detection",
+      "preview": "Battery fires usually develop over minutes or hours, but most systems react only after a fixed temperature limit is crossed.",
+      "desc": "Battery fires usually develop over minutes or hours, but most systems react only after a fixed temperature limit is crossed. How can a battery pack detect a developing fault early enough to warn the user?",
+      "techScope": [
+        "Analyse voltage, temperature and current patterns from test data.",
+        "Spot cell imbalance, abnormal heating and rising internal resistance.",
+        "Raise graded warnings: Normal, Caution or Critical."
+      ],
+      "deliverables": [
+        "Fault-detection model or rule set validated on test data.",
+        "Graded warning output (Normal / Caution / Critical) with the signals that triggered it.",
+        "Report on how early the warning arrives compared with a fixed-threshold alarm."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "EEE",
+        "AI&DS",
+        "Mechatronics",
+        "CSE"
+      ],
+      "source_ref": "PS-4"
+    },
+    {
+      "code": "KII26104",
+      "title": "Motor and Controller Fault Prediction",
+      "category": "Powertrain",
+      "complexity": "Predictive Maintenance",
+      "tag": "Powertrain · Predictive Maintenance",
+      "preview": "EV motors and controllers often fail suddenly, leaving vehicles stranded and repairs expensive.",
+      "desc": "EV motors and controllers often fail suddenly, leaving vehicles stranded and repairs expensive. Can we detect a motor or controller fault before it becomes a major failure?",
+      "techScope": [
+        "Use temperature, vibration, current, voltage and RPM data.",
+        "Train a model that classifies condition as Normal, Warning or Fault.",
+        "Point to the probable faulty part."
+      ],
+      "deliverables": [
+        "Trained condition-classification model with accuracy report.",
+        "Probable-fault-location output for each Warning or Fault case.",
+        "Demo showing condition status changing as fault data is introduced."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "EEE",
+        "Mechanical",
+        "Automobile",
+        "Mechatronics",
+        "AI&DS"
+      ],
+      "source_ref": "PS-5"
+    },
+    {
+      "code": "KII26105",
+      "title": "Regenerative and Friction Braking Blend",
+      "category": "Braking",
+      "complexity": "Control Strategy",
+      "tag": "Braking · Control Strategy",
+      "preview": "Relying too much on friction brakes wastes energy, while too much regenerative braking can reduce stability or overcharge the battery.",
+      "desc": "Relying too much on friction brakes wastes energy, while too much regenerative braking can reduce stability or overcharge the battery. How can an EV decide how much regenerative and how much mechanical braking to apply?",
+      "techScope": [
+        "Design a control strategy using speed, battery state of charge, road condition and braking demand.",
+        "Test it in simulation over standard drive cycles.",
+        "Evaluate energy recovered and safe stopping."
+      ],
+      "deliverables": [
+        "Braking-blend controller model with its decision logic documented.",
+        "Simulation results: energy recovered and stopping performance over drive cycles.",
+        "Comparison against friction-only or fixed-ratio braking."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "Automobile",
+        "Mechanical",
+        "EEE",
+        "Mechatronics",
+        "CSE"
+      ],
+      "source_ref": "PS-7"
+    },
+    {
+      "code": "KII26106",
+      "title": "Road Hazard Detection",
+      "category": "Computer Vision",
+      "complexity": "Road Safety",
+      "tag": "Computer Vision · Road Safety",
+      "preview": "Potholes, speed breakers, debris and waterlogged patches on Indian roads damage vehicles and cause accidents, often with little warning.",
+      "desc": "Potholes, speed breakers, debris and waterlogged patches on Indian roads damage vehicles and cause accidents, often with little warning. How can a vehicle detect and classify road hazards before reaching them?",
+      "techScope": [
+        "Train a vision model on road footage to detect and classify hazards.",
+        "Estimate hazard location and severity.",
+        "Show how the vehicle could respond, for example by warning the driver or slowing down."
+      ],
+      "deliverables": [
+        "Trained hazard-detection model with detection accuracy report.",
+        "Demo on road footage showing location and severity estimates.",
+        "Illustration of the warning or slow-down response."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "CSE",
+        "AI&DS",
+        "Mechatronics",
+        "Automobile"
+      ],
+      "source_ref": "PS-9"
+    },
+    {
+      "code": "KII26107",
+      "title": "Vehicle Safety Decision System",
+      "category": "Functional Safety",
+      "complexity": "Decision Systems",
+      "tag": "Functional Safety · Decision Systems",
+      "preview": "A vehicle with failing sensors, a low battery or an obstacle ahead must know when to continue, slow down or stop.",
+      "desc": "A vehicle with failing sensors, a low battery or an obstacle ahead must know when to continue, slow down or stop. How can a vehicle decide safely between GO, SLOW, STOP and SAFE MODE?",
+      "techScope": [
+        "Combine obstacle distance, sensor health, battery condition, slope and vehicle health into one decision system.",
+        "Output one of GO, SLOW, STOP or SAFE MODE.",
+        "Test in simulated failure scenarios."
+      ],
+      "deliverables": [
+        "Working decision system with documented rules or model.",
+        "Test-scenario table showing inputs and the resulting decision.",
+        "Demo of the vehicle response under sensor, battery and obstacle failures."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "All branches"
+      ],
+      "source_ref": "PS-11"
+    },
+    {
+      "code": "KII26108",
+      "title": "GPS-Free Localization",
+      "category": "Autonomy",
+      "complexity": "Sensor Fusion",
+      "tag": "Autonomy · Sensor Fusion",
+      "preview": "GPS fails in parking structures, tunnels and dense areas, yet a vehicle still needs to know where it is.",
+      "desc": "GPS fails in parking structures, tunnels and dense areas, yet a vehicle still needs to know where it is. How can a vehicle locate itself accurately with low-cost sensors when GPS is unavailable?",
+      "techScope": [
+        "Fuse IMU, wheel-encoder and camera data to estimate position.",
+        "Compare each sensor used alone with the fused result.",
+        "Quantify the improvement from fusion."
+      ],
+      "deliverables": [
+        "Sensor-fusion localization pipeline.",
+        "Error comparison: each sensor alone versus fused estimate.",
+        "Plot of estimated versus true trajectory."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "Mechatronics",
+        "EEE",
+        "CSE",
+        "AI&DS",
+        "Automobile"
+      ],
+      "source_ref": "PS-13"
+    },
+    {
+      "code": "KII26109",
+      "title": "Vehicle Network Intrusion Detection",
+      "category": "Vehicle Cybersecurity",
+      "complexity": "Embedded Systems",
+      "tag": "Vehicle Cybersecurity · Embedded Systems",
+      "preview": "Vehicle networks were designed for reliability, not security, so a spoofed message could trigger dangerous behaviour.",
+      "desc": "Vehicle networks were designed for reliability, not security, so a spoofed message could trigger dangerous behaviour. How can a vehicle detect fake messages on its internal network?",
+      "techScope": [
+        "Build a small CAN network with microcontroller nodes.",
+        "Inject spoofed messages into the network.",
+        "Design a simple intrusion-detection filter that flags them."
+      ],
+      "deliverables": [
+        "Working CAN network prototype with multiple nodes.",
+        "Intrusion-detection filter with detection and false-alarm results.",
+        "Demo of spoofed messages being flagged in real time."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "CSE",
+        "EEE",
+        "Mechatronics"
+      ],
+      "source_ref": "PS-17"
+    },
+    {
+      "code": "KII26110",
+      "title": "Low-Cost Battery Monitor",
+      "category": "Battery",
+      "complexity": "Embedded Hardware",
+      "tag": "Battery · Embedded Hardware",
+      "preview": "Many small EVs and e-bikes have no reliable way to watch cell condition, so overheating and imbalance go unnoticed.",
+      "desc": "Many small EVs and e-bikes have no reliable way to watch cell condition, so overheating and imbalance go unnoticed. How can a low-cost system monitor a battery and warn of unsafe conditions?",
+      "techScope": [
+        "Build an embedded monitor measuring cell voltage, current and temperature.",
+        "Detect abnormal conditions.",
+        "Show the result on a display or through an alert."
+      ],
+      "deliverables": [
+        "Working battery-monitor hardware prototype.",
+        "Test results showing detection of abnormal voltage, current or temperature.",
+        "Demo of the display or alert response."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "EEE",
+        "Mechatronics"
+      ],
+      "source_ref": "PS-21"
+    },
+    {
+      "code": "KII26111",
+      "title": "Motor and Controller Efficiency Bench",
+      "category": "Powertrain",
+      "complexity": "Test Bench",
+      "tag": "Powertrain · Test Bench",
+      "preview": "Even a good motor wastes energy when the controller does not suit the operating point, and that shortens EV range.",
+      "desc": "Even a good motor wastes energy when the controller does not suit the operating point, and that shortens EV range. Where does a motor drive lose energy, and how can we reduce it?",
+      "techScope": [
+        "Build a small load bench measuring input and output power across speed and torque.",
+        "Plot an efficiency map.",
+        "Test one control improvement."
+      ],
+      "deliverables": [
+        "Working load bench with measurement setup.",
+        "Efficiency map of the motor and controller.",
+        "Before/after result for the tested control improvement."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "EEE",
+        "Mechanical",
+        "Automobile"
+      ],
+      "source_ref": "PS-25"
+    },
+    {
+      "code": "KII26112",
+      "title": "Wheel-Slip and Traction Control",
+      "category": "Vehicle Dynamics",
+      "complexity": "Mechatronics",
+      "tag": "Vehicle Dynamics · Mechatronics",
+      "preview": "On wet or loose roads, wheels slip during acceleration and braking, and the driver loses control.",
+      "desc": "On wet or loose roads, wheels slip during acceleration and braking, and the driver loses control. How can a vehicle detect slip and restore grip automatically?",
+      "techScope": [
+        "Build a miniature rig with wheel-speed sensors.",
+        "Detect slip from wheel-speed differences.",
+        "Reduce motor torque in a closed loop to restore grip."
+      ],
+      "deliverables": [
+        "Working miniature traction-control rig.",
+        "Slip-detection and torque-reduction test results.",
+        "Comparison of behaviour with and without the control loop."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "Mechanical",
+        "Mechatronics",
+        "EEE"
+      ],
+      "source_ref": "PS-27"
+    },
+    {
+      "code": "KII26113",
+      "title": "Adaptive Suspension",
+      "category": "Suspension",
+      "complexity": "Adaptive Control",
+      "tag": "Suspension · Adaptive Control",
+      "preview": "A fixed suspension cannot be both comfortable over potholes and stable at speed.",
+      "desc": "A fixed suspension cannot be both comfortable over potholes and stable at speed. How can a suspension adapt automatically to changing road conditions?",
+      "techScope": [
+        "Build a quarter-car rig with an accelerometer.",
+        "Use an adjustable damper that switches between soft and firm settings.",
+        "Choose the setting automatically from the road condition."
+      ],
+      "deliverables": [
+        "Working quarter-car rig with adjustable damping.",
+        "Ride-comfort and stability comparison of soft, firm and adaptive modes.",
+        "Demo of automatic switching on different road inputs."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "Mechanical",
+        "Automobile",
+        "Mechatronics",
+        "AI&DS"
+      ],
+      "source_ref": "PS-29"
+    },
+    {
+      "code": "KII26114",
+      "title": "Collision and Blind-Spot Warning for Two-Wheelers",
+      "category": "Rider Safety",
+      "complexity": "Embedded Hardware",
+      "tag": "Rider Safety · Embedded Hardware",
+      "preview": "Two-wheeler riders cannot see vehicles beside or behind them and have very little time to react.",
+      "desc": "Two-wheeler riders cannot see vehicles beside or behind them and have very little time to react. How can a low-cost device warn a rider of approaching obstacles?",
+      "techScope": [
+        "Build an embedded prototype using ultrasonic or IR sensors.",
+        "Give graded warnings based on distance.",
+        "Make the safety threshold configurable."
+      ],
+      "deliverables": [
+        "Working embedded warning prototype.",
+        "Test results on detection range and warning accuracy.",
+        "Demo of graded warnings with an adjustable threshold."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "EEE",
+        "Mechatronics",
+        "Mechanical",
+        "Automobile"
+      ],
+      "source_ref": "PS-34"
+    },
+    {
+      "code": "KII26115",
+      "title": "Vehicle-to-Grid Charger",
+      "category": "Power Electronics",
+      "complexity": "Grid Integration",
+      "tag": "Power Electronics · Grid Integration",
+      "preview": "Parked EVs hold a large amount of unused energy that could support the power grid at peak demand.",
+      "desc": "Parked EVs hold a large amount of unused energy that could support the power grid at peak demand. How can an EV battery both charge from, and return power to, a grid or load?",
+      "techScope": [
+        "Build a small bidirectional charger circuit.",
+        "Charge a battery and discharge it to a load on command.",
+        "Measure the efficiency of both directions."
+      ],
+      "deliverables": [
+        "Working bidirectional charger prototype.",
+        "Demonstration of charging and discharging on command.",
+        "Efficiency measurements for charge and discharge modes."
+      ],
+      "status": "final",
+      "requested_by": "Automotive Research Team",
+      "branches": [
+        "EEE",
+        "Automobile"
+      ],
+      "source_ref": "PS-39"
+    }
+  ],
+  "lifesciences": [
+    {
+      "code": "KII26201",
+      "title": "DNA Barcoding for Monitoring Endangered Species and Genetic Diversity",
+      "category": "Conservation Genomics",
+      "complexity": "DNA Barcoding",
+      "tag": "Conservation Genomics · DNA Barcoding",
+      "preview": "Loss of biodiversity is making it difficult to monitor and conserve endangered species and their genetic diversity.",
+      "desc": "Loss of biodiversity is making it difficult to monitor and conserve endangered species and their genetic diversity.",
+      "techScope": [
+        "DNA barcoding of target species and populations.",
+        "Conservation-genomics analysis of genetic diversity.",
+        "Design of a monitoring workflow usable for repeated surveys."
+      ],
+      "deliverables": [
+        "Barcode dataset or reference library for selected species.",
+        "Genetic-diversity assessment with interpretation.",
+        "Proposed monitoring workflow for conservation use."
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    },
+    {
+      "code": "KII26202",
+      "title": "DNA-Based Identification of Protected Species in Illegal Wildlife Trade",
+      "category": "Wildlife Forensics",
+      "complexity": "DNA-Based Identification",
+      "tag": "Wildlife Forensics · DNA-Based Identification",
+      "preview": "Illegal wildlife trade makes rapid and reliable identification of protected species and their biological materials necessary.",
+      "desc": "Illegal wildlife trade makes rapid and reliable identification of protected species and their biological materials necessary.",
+      "techScope": [
+        "DNA-based species identification from biological material.",
+        "Marker selection and validation for protected species.",
+        "Rapid, reliable identification workflow."
+      ],
+      "deliverables": [
+        "Validated identification protocol with markers used.",
+        "Test results on known and blinded samples.",
+        "Short guide for use by enforcement or conservation teams."
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    },
+    {
+      "code": "KII26203",
+      "title": "Habitat Fragmentation and Gene Flow in Wildlife Populations",
+      "category": "Population Genetics",
+      "complexity": "Genomic Analysis",
+      "tag": "Population Genetics · Genomic Analysis",
+      "preview": "Habitat fragmentation can reduce genetic diversity and gene flow between wildlife populations.",
+      "desc": "Habitat fragmentation can reduce genetic diversity and gene flow between wildlife populations.",
+      "techScope": [
+        "Population-genetics analysis of fragmented populations.",
+        "Genomic analysis of diversity and connectivity.",
+        "Assessment of gene-flow reduction."
+      ],
+      "deliverables": [
+        "Population-structure and diversity analysis.",
+        "Gene-flow estimates between populations.",
+        "Conservation recommendations based on the findings."
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    },
+    {
+      "code": "KII26204",
+      "title": "Genome Resources for Data-Poor Endangered Species",
+      "category": "Genome Sequencing",
+      "complexity": "Conservation Genomics",
+      "tag": "Genome Sequencing · Conservation Genomics",
+      "preview": "Many endangered species have limited genetic information available for effective conservation planning.",
+      "desc": "Many endangered species have limited genetic information available for effective conservation planning.",
+      "techScope": [
+        "Genome sequencing of endangered species.",
+        "Conservation-genomics analysis of the resulting data.",
+        "Generation of genetic information useful for planning."
+      ],
+      "deliverables": [
+        "Sequence data or draft genomic resource for the selected species.",
+        "Analysis summary of genetic variation.",
+        "Note on how the data supports conservation planning."
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    },
+    {
+      "code": "KII26205",
+      "title": "Molecular Identification and Biological Control of Invasive Alien Species",
+      "category": "Invasive Species",
+      "complexity": "Molecular Identification",
+      "tag": "Invasive Species · Molecular Identification",
+      "preview": "Invasive alien species can disrupt native ecosystems and outcompete indigenous organisms.",
+      "desc": "Invasive alien species can disrupt native ecosystems and outcompete indigenous organisms.",
+      "techScope": [
+        "Molecular identification of invasive species.",
+        "Biological-control approaches.",
+        "Assessment of impact on native organisms."
+      ],
+      "deliverables": [
+        "Molecular identification protocol for target invasive species.",
+        "Evaluation of a biological-control option.",
+        "Summary of ecological impact and management suggestions."
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    },
+    {
+      "code": "KII26206",
+      "title": "Microbial Community Changes in Degraded Forests",
+      "category": "Environmental Microbiology",
+      "complexity": "Metagenomics",
+      "tag": "Environmental Microbiology · Metagenomics",
+      "preview": "Forest degradation causes loss of biodiversity and alters the microbial communities that support forest ecosystem functioning.",
+      "desc": "Forest degradation causes loss of biodiversity and alters the microbial communities that support forest ecosystem functioning.",
+      "techScope": [
+        "Environmental-microbiology sampling of forest soils.",
+        "Metagenomic analysis of microbial communities.",
+        "Comparison of degraded and healthy forest sites."
+      ],
+      "deliverables": [
+        "Metagenomic profiles of the sampled sites.",
+        "Comparison of community composition and function.",
+        "Interpretation of how degradation alters ecosystem functioning."
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    },
+    {
+      "code": "KII26207",
+      "title": "Soil Microbiome Analysis in Degraded Soils",
+      "category": "Soil Microbiome",
+      "complexity": "Nutrient Cycling",
+      "tag": "Soil Microbiome · Nutrient Cycling",
+      "preview": "Soil degradation can alter microbial diversity and disrupt essential nutrient-cycling processes.",
+      "desc": "Soil degradation can alter microbial diversity and disrupt essential nutrient-cycling processes.",
+      "techScope": [
+        "Soil microbiome analysis across soil conditions.",
+        "Assessment of microbial diversity.",
+        "Link between microbial change and nutrient cycling."
+      ],
+      "deliverables": [
+        "Soil microbiome profiles for degraded and reference soils.",
+        "Diversity and nutrient-cycling comparison.",
+        "Summary of implications for soil restoration."
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    },
+    {
+      "code": "KII26208",
+      "title": "Bioremediation of Heavy-Metal and Contaminated Land",
+      "category": "Bioremediation",
+      "complexity": "Phytoremediation",
+      "tag": "Bioremediation · Phytoremediation",
+      "preview": "Land pollution by heavy metals and other contaminants can persist for long periods and negatively affect terrestrial ecosystems.",
+      "desc": "Land pollution by heavy metals and other contaminants can persist for long periods and negatively affect terrestrial ecosystems.",
+      "techScope": [
+        "Microbial bioremediation approaches.",
+        "Phytoremediation approaches.",
+        "Evaluation of contaminant reduction."
+      ],
+      "deliverables": [
+        "Tested bioremediation or phytoremediation set-up.",
+        "Contaminant-reduction results against a control.",
+        "Recommendation on the most practical approach."
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    },
+    {
+      "code": "KII26209",
+      "title": "Restoring Beneficial Microorganisms in Degraded Ecosystems",
+      "category": "Microbial Ecology",
+      "complexity": "Ecosystem Restoration",
+      "tag": "Microbial Ecology · Ecosystem Restoration",
+      "preview": "The loss of beneficial microorganisms from degraded ecosystems can reduce their ability to naturally recover.",
+      "desc": "The loss of beneficial microorganisms from degraded ecosystems can reduce their ability to naturally recover.",
+      "techScope": [
+        "Microbial-ecology assessment of degraded sites.",
+        "Identification of beneficial microorganisms.",
+        "Microbial restoration strategy."
+      ],
+      "deliverables": [
+        "Inventory of key beneficial microbes at reference and degraded sites.",
+        "Proposed restoration approach.",
+        "Preliminary test of recovery effect."
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    },
+    {
+      "code": "KII26210",
+      "title": "Molecular Diagnostics for Wildlife Diseases and Spillover Risk",
+      "category": "Molecular Diagnostics",
+      "complexity": "Pathogen Genomics",
+      "tag": "Molecular Diagnostics · Pathogen Genomics",
+      "preview": "Wildlife diseases can threaten vulnerable animal populations and may spread between wildlife, domestic animals and humans.",
+      "desc": "Wildlife diseases can threaten vulnerable animal populations and may spread between wildlife, domestic animals and humans.",
+      "techScope": [
+        "Molecular diagnostic methods for wildlife pathogens.",
+        "Pathogen-genomics analysis.",
+        "Tracking of possible spread across wildlife, domestic animals and humans."
+      ],
+      "deliverables": [
+        "Diagnostic assay or workflow for a target pathogen.",
+        "Pathogen genomic analysis of test samples.",
+        "Risk summary for cross-species spread."
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    },
+    {
+      "code": "KII26211",
+      "title": "Genetic Bottlenecks in Small Wildlife Populations",
+      "category": "Population Genomics",
+      "complexity": "Small Populations",
+      "tag": "Population Genomics · Small Populations",
+      "preview": "Genetic bottlenecks in small wildlife populations can increase vulnerability to environmental changes and disease.",
+      "desc": "Genetic bottlenecks in small wildlife populations can increase vulnerability to environmental changes and disease.",
+      "techScope": [
+        "Population-genomics analysis of small populations.",
+        "Detection of bottleneck signatures and reduced diversity.",
+        "Assessment of vulnerability."
+      ],
+      "deliverables": [
+        "Bottleneck and diversity analysis.",
+        "Vulnerability assessment.",
+        "Management suggestions to maintain genetic health."
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    },
+    {
+      "code": "KII26212",
+      "title": "Molecular Taxonomy of Cryptic and Closely Related Species",
+      "category": "Molecular Taxonomy",
+      "complexity": "DNA Barcoding",
+      "tag": "Molecular Taxonomy · DNA Barcoding",
+      "preview": "Traditional morphological methods may be insufficient for accurately identifying cryptic or closely related species.",
+      "desc": "Traditional morphological methods may be insufficient for accurately identifying cryptic or closely related species.",
+      "techScope": [
+        "DNA barcoding of closely related taxa.",
+        "Molecular-taxonomy analysis.",
+        "Comparison with morphological identification."
+      ],
+      "deliverables": [
+        "Barcode-based species delimitation for the study group.",
+        "Comparison of molecular and morphological results.",
+        "Reference sequence set for future identification."
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    },
+    {
+      "code": "KII26213",
+      "title": "Bioprospecting Microbial Resources from Threatened Habitats",
+      "category": "Biodiversity Genomics",
+      "complexity": "Bioprospecting",
+      "tag": "Biodiversity Genomics · Bioprospecting",
+      "preview": "The destruction of natural habitats can lead to the loss of microorganisms and other organisms with potentially valuable biological resources.",
+      "desc": "The destruction of natural habitats can lead to the loss of microorganisms and other organisms with potentially valuable biological resources.",
+      "techScope": [
+        "Biodiversity-genomics survey of habitat samples.",
+        "Microbial bioprospecting for valuable traits.",
+        "Documentation of resources at risk of loss."
+      ],
+      "deliverables": [
+        "Catalogue of isolated or sequenced organisms.",
+        "Screening results for valuable traits.",
+        "Note on conservation value of the habitat."
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    },
+    {
+      "code": "KII26214",
+      "title": "Microbial Consortia for Restoring Degraded Land",
+      "category": "Bioaugmentation",
+      "complexity": "Ecological Restoration",
+      "tag": "Bioaugmentation · Ecological Restoration",
+      "preview": "Degraded land may have reduced biological activity, limiting natural ecosystem restoration.",
+      "desc": "Degraded land may have reduced biological activity, limiting natural ecosystem restoration.",
+      "techScope": [
+        "Design of microbial consortia.",
+        "Bioaugmentation of degraded soil.",
+        "Ecological-restoration assessment."
+      ],
+      "deliverables": [
+        "Defined microbial consortium and preparation method.",
+        "Test results on soil activity versus untreated control.",
+        "Recommendation for field application."
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    },
+    {
+      "code": "KII26215",
+      "title": "Climate-Driven Shifts in Terrestrial Microbial Communities",
+      "category": "Metagenomics",
+      "complexity": "Climate and Environment",
+      "tag": "Metagenomics · Climate and Environment",
+      "preview": "Climate and environmental changes can alter terrestrial microbial communities and their roles in ecosystem functioning.",
+      "desc": "Climate and environmental changes can alter terrestrial microbial communities and their roles in ecosystem functioning.",
+      "techScope": [
+        "Metagenomic analysis of terrestrial microbial communities.",
+        "Environmental-microbiology comparison across conditions.",
+        "Link between community shifts and ecosystem function."
+      ],
+      "deliverables": [
+        "Community-composition and function profiles across environmental conditions.",
+        "Analysis of shifts linked to climate or environmental variables.",
+        "Summary of implications for ecosystem functioning. ---"
+      ],
+      "status": "final",
+      "requested_by": "Ré Bioscience"
+    }
+  ],
+  "software": [
+    {
+      "code": "KII26301",
+      "title": "Low-Cost Classroom Acoustic Intelligence for Identifying Speech-Understanding Difficulties",
+      "category": "Acoustics",
+      "complexity": "Embedded Systems",
+      "tag": "Acoustics · Embedded Systems",
+      "preview": "Students may struggle to understand teachers because of noise, reverberation and poor classroom acoustics.",
+      "desc": "Students may struggle to understand teachers because of noise, reverberation and poor classroom acoustics.",
+      "techScope": [
+        "Develop an embedded system that measures classroom acoustic conditions.",
+        "Investigate how these conditions affect speech intelligibility.",
+        "Keep the system low-cost and classroom-deployable."
+      ],
+      "deliverables": [
+        "Working embedded acoustic-measurement prototype.",
+        "Analysis linking measured conditions to speech intelligibility.",
+        "Test results from at least one real or simulated classroom."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26302",
+      "title": "Adaptive Assistive Listening System for Students in Noisy Classrooms",
+      "category": "Signal Processing",
+      "complexity": "Assistive Technology",
+      "tag": "Signal Processing · Assistive Technology",
+      "preview": "Conventional amplification increases both speech and background noise.",
+      "desc": "Conventional amplification increases both speech and background noise.",
+      "techScope": [
+        "Develop an adaptive system that estimates background noise.",
+        "Enhance the teacher's speech while suppressing unwanted sounds in real time.",
+        "Evaluate improvement over plain amplification."
+      ],
+      "deliverables": [
+        "Working real-time noise-adaptive listening prototype.",
+        "Measured speech-enhancement results versus conventional amplification.",
+        "Demo in a noisy environment."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26303",
+      "title": "Non-Intrusive Detection of Student Attention Using Classroom Acoustic and Environmental Signals",
+      "category": "Privacy-Preserving Sensing",
+      "complexity": "Learning Analytics",
+      "tag": "Privacy-Preserving Sensing · Learning Analytics",
+      "preview": "Teachers cannot continuously identify when students are losing engagement.",
+      "desc": "Teachers cannot continuously identify when students are losing engagement.",
+      "techScope": [
+        "Investigate whether acoustic and environmental patterns indicate classroom engagement.",
+        "Use no cameras, to preserve privacy.",
+        "Build a privacy-preserving engagement indicator."
+      ],
+      "deliverables": [
+        "Sensing setup and data collected in a classroom setting.",
+        "Analysis of how signals relate to engagement.",
+        "Prototype engagement indicator with findings on its reliability."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26304",
+      "title": "Early Detection of Electrical Faults in Educational Laboratory Equipment",
+      "category": "Electrical Safety",
+      "complexity": "Predictive Maintenance",
+      "tag": "Electrical Safety · Predictive Maintenance",
+      "preview": "Faulty laboratory equipment can create safety risks and unexpected failures.",
+      "desc": "Faulty laboratory equipment can create safety risks and unexpected failures.",
+      "techScope": [
+        "Develop a low-cost system that monitors electrical parameters.",
+        "Identify abnormal operating patterns.",
+        "Flag problems before failure occurs."
+      ],
+      "deliverables": [
+        "Working monitoring prototype.",
+        "Demonstration on equipment with normal and abnormal behaviour.",
+        "Report on detection performance and false alarms."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26305",
+      "title": "Automated PCB Fault Localization for Educational and Small-Scale Electronics Laboratories",
+      "category": "Electronics Testing",
+      "complexity": "Fault Localization",
+      "tag": "Electronics Testing · Fault Localization",
+      "preview": "Conventional PCB testing often identifies that a board has failed but requires manual probing to locate the fault.",
+      "desc": "Conventional PCB testing often identifies that a board has failed but requires manual probing to locate the fault.",
+      "techScope": [
+        "Develop a low-cost automated method to identify and localize faults.",
+        "Cover open, short and abnormal component conditions.",
+        "Reduce reliance on manual probing."
+      ],
+      "deliverables": [
+        "Working fault-localization prototype.",
+        "Test results on boards with known injected faults.",
+        "Comparison with manual probing time."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26306",
+      "title": "Adaptive Energy Monitoring and Fault Detection for Electronics Laboratories",
+      "category": "Energy Monitoring",
+      "complexity": "Anomaly Detection",
+      "tag": "Energy Monitoring · Anomaly Detection",
+      "preview": "Laboratory equipment is often left powered unnecessarily, while abnormal energy consumption may indicate equipment faults.",
+      "desc": "Laboratory equipment is often left powered unnecessarily, while abnormal energy consumption may indicate equipment faults.",
+      "techScope": [
+        "Develop a system that learns normal consumption patterns.",
+        "Detect deviations from normal behaviour.",
+        "Identify both wasted energy and possible equipment faults."
+      ],
+      "deliverables": [
+        "Working monitoring system with learned baselines.",
+        "Examples of detected deviations.",
+        "Estimate of energy waste identified."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26307",
+      "title": "Wearable-Based Detection of Unsafe Ergonomic Postures During Prolonged Laboratory Work",
+      "category": "Wearables",
+      "complexity": "Ergonomics",
+      "tag": "Wearables · Ergonomics",
+      "preview": "Students working for long periods at benches may develop harmful postures without realizing it.",
+      "desc": "Students working for long periods at benches may develop harmful postures without realizing it.",
+      "techScope": [
+        "Develop a wearable sensing system.",
+        "Identify posture deviations.",
+        "Provide real-time feedback to the wearer."
+      ],
+      "deliverables": [
+        "Working wearable prototype.",
+        "Posture-detection accuracy results.",
+        "Demo of real-time feedback."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26308",
+      "title": "Low-Cost Indoor Air Quality Monitoring with Occupancy-Aware Risk Estimation for Classrooms",
+      "category": "Environmental Sensing",
+      "complexity": "Indoor Air Quality",
+      "tag": "Environmental Sensing · Indoor Air Quality",
+      "preview": "Classroom ventilation can deteriorate as occupancy increases, affecting comfort and learning conditions.",
+      "desc": "Classroom ventilation can deteriorate as occupancy increases, affecting comfort and learning conditions.",
+      "techScope": [
+        "Develop a system combining environmental sensing and occupancy estimation.",
+        "Study ventilation-related risk.",
+        "Keep the system low-cost."
+      ],
+      "deliverables": [
+        "Working sensing prototype.",
+        "Data linking occupancy to air-quality change.",
+        "Risk indicator for ventilation conditions."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26309",
+      "title": "Intelligent Hearing-Safety Monitoring for Students in High-Noise Laboratory Environments",
+      "category": "Wearables",
+      "complexity": "Occupational Safety",
+      "tag": "Wearables · Occupational Safety",
+      "preview": "Students exposed to machinery and equipment noise may experience prolonged exposure without knowing whether levels are potentially harmful.",
+      "desc": "Students exposed to machinery and equipment noise may experience prolonged exposure without knowing whether levels are potentially harmful.",
+      "techScope": [
+        "Develop a wearable or portable system for continuous noise exposure estimation.",
+        "Track cumulative exposure over time.",
+        "Alert users when levels are potentially harmful."
+      ],
+      "deliverables": [
+        "Working wearable or portable prototype.",
+        "Exposure-estimation accuracy results.",
+        "Demo of cumulative-exposure tracking and alerts."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26310",
+      "title": "Real-Time Detection of Abnormal Vibrations in Laboratory and Educational Machines",
+      "category": "Vibration Analysis",
+      "complexity": "Predictive Maintenance",
+      "tag": "Vibration Analysis · Predictive Maintenance",
+      "preview": "Small mechanical abnormalities can develop into equipment failure, but routine inspection may not detect early changes.",
+      "desc": "Small mechanical abnormalities can develop into equipment failure, but routine inspection may not detect early changes.",
+      "techScope": [
+        "Develop a vibration-monitoring system.",
+        "Learn normal operating signatures.",
+        "Identify deviations from normal operation."
+      ],
+      "deliverables": [
+        "Working vibration-monitoring prototype.",
+        "Recorded normal versus abnormal signatures.",
+        "Demonstration of early deviation detection."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26311",
+      "title": "Contactless Detection of Water Leakage in Educational Buildings Using Multi-Sensor Signal Analysis",
+      "category": "Smart Buildings",
+      "complexity": "Multi-Sensor Analysis",
+      "tag": "Smart Buildings · Multi-Sensor Analysis",
+      "preview": "Small unnoticed leaks can cause structural damage and water wastage.",
+      "desc": "Small unnoticed leaks can cause structural damage and water wastage.",
+      "techScope": [
+        "Develop a sensor system that identifies leakage signatures.",
+        "Distinguish leaks from normal water-flow patterns.",
+        "Use contactless, multi-sensor analysis."
+      ],
+      "deliverables": [
+        "Working multi-sensor leak-detection prototype.",
+        "Test results separating leaks from normal flow.",
+        "Summary of detection reliability."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26312",
+      "title": "Intelligent Power-Quality Monitoring for Educational Institutions",
+      "category": "Power Quality",
+      "complexity": "Electrical Monitoring",
+      "tag": "Power Quality · Electrical Monitoring",
+      "preview": "Voltage fluctuations, harmonics and transient disturbances can affect sensitive laboratory equipment.",
+      "desc": "Voltage fluctuations, harmonics and transient disturbances can affect sensitive laboratory equipment.",
+      "techScope": [
+        "Develop a low-cost monitoring system.",
+        "Detect power-quality disturbances.",
+        "Classify the type of disturbance."
+      ],
+      "deliverables": [
+        "Working power-quality monitor.",
+        "Classification results on recorded disturbances.",
+        "Comparison with a reference measurement where available."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26313",
+      "title": "Privacy-Preserving Occupancy Estimation for Smart Classroom Resource Management",
+      "category": "Privacy-Preserving Sensing",
+      "complexity": "Smart Campus",
+      "tag": "Privacy-Preserving Sensing · Smart Campus",
+      "preview": "Conventional camera-based occupancy monitoring raises privacy concerns.",
+      "desc": "Conventional camera-based occupancy monitoring raises privacy concerns.",
+      "techScope": [
+        "Investigate non-visual sensing such as RF, sound, CO₂ or environmental signals.",
+        "Estimate classroom occupancy from these signals.",
+        "Assess how accurate each approach is."
+      ],
+      "deliverables": [
+        "Sensing prototype and collected data.",
+        "Accuracy comparison of the sensing approaches.",
+        "Recommendation on the most practical privacy-preserving method."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26314",
+      "title": "Reference-Learning PCB Testing with Reusable Test Points",
+      "category": "Electronics Testing",
+      "complexity": "Embedded Learning Systems",
+      "tag": "Electronics Testing · Embedded Learning Systems",
+      "preview": "Existing PCB testing methods can be costly, fixture-dependent or time-consuming.",
+      "desc": "Existing PCB testing methods can be costly, fixture-dependent or time-consuming.",
+      "techScope": [
+        "Develop a low-cost embedded system that learns a good PCB's electrical behaviour.",
+        "Compare other boards against the learned behaviour.",
+        "Detect and localize opens, shorts and incorrect component values using a limited number of reusable test points."
+      ],
+      "deliverables": [
+        "Working embedded test system with learned reference.",
+        "Fault-detection and localization results on test boards.",
+        "Cost and test-time comparison with conventional methods."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26315",
+      "title": "Early Detection of Electrical Safety Hazards in Student-Used Extension Boards and Power Strips",
+      "category": "Electrical Safety",
+      "complexity": "Hostel and Lab Safety",
+      "tag": "Electrical Safety · Hostel and Lab Safety",
+      "preview": "Overloading, abnormal current and poor connections can create hidden electrical hazards in classrooms, hostels and laboratories.",
+      "desc": "Overloading, abnormal current and poor connections can create hidden electrical hazards in classrooms, hostels and laboratories.",
+      "techScope": [
+        "Develop a monitoring system for extension boards and power strips.",
+        "Identify abnormal electrical behaviour.",
+        "Warn before a dangerous condition develops."
+      ],
+      "deliverables": [
+        "Working monitoring prototype.",
+        "Test results with overload and poor-connection scenarios.",
+        "Demo of early warning. ---"
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    }
+  ],
+  "energy": [
+    {
+      "code": "KII26401",
+      "title": "End-of-Life Solar Panels",
+      "category": "Solar",
+      "complexity": "Circular Economy",
+      "tag": "Solar · Circular Economy",
+      "preview": "Solar photovoltaic panels have a finite operating life, after which large quantities of modules will require reuse, refurbishment,…",
+      "desc": "Solar photovoltaic panels have a finite operating life, after which large quantities of modules will require reuse, refurbishment, recycling or disposal. PV modules contain valuable materials such as glass, aluminium, silicon and other components, but separating and recovering these materials economically remains challenging. What should happen to solar panels after their useful life?",
+      "techScope": [
+        "Investigate reuse, refurbishment and recycling routes for retired PV modules.",
+        "Study economical recovery of glass, aluminium, silicon and other materials.",
+        "Assess technical, economic and environmental sustainability."
+      ],
+      "deliverables": [
+        "Comparison of end-of-life pathways for PV modules.",
+        "Proposed material-recovery process or approach.",
+        "Sustainability assessment of the recommended pathway."
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    },
+    {
+      "code": "KII26402",
+      "title": "Wind-Turbine Blade Waste",
+      "category": "Wind",
+      "complexity": "Composite Recycling",
+      "tag": "Wind · Composite Recycling",
+      "preview": "Wind-turbine blades are primarily made from fibre-reinforced composite materials that are difficult to recycle through conventiona…",
+      "desc": "Wind-turbine blades are primarily made from fibre-reinforced composite materials that are difficult to recycle through conventional waste-processing methods. As older turbines are decommissioned or repowered, increasing quantities of composite blades will reach end of life. What can be done with retired blades?",
+      "techScope": [
+        "Explore reuse, repurposing and recycling of composite blades.",
+        "Convert blade material into valuable products or materials.",
+        "Minimise processing energy, environmental impact and waste."
+      ],
+      "deliverables": [
+        "Review of feasible blade reuse and recycling routes.",
+        "Proposed or demonstrated product or process from blade material.",
+        "Energy and environmental impact comparison."
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    },
+    {
+      "code": "KII26403",
+      "title": "Geothermal Energy Beneath India's Hot Springs",
+      "category": "Geothermal",
+      "complexity": "Low-Temperature Energy",
+      "tag": "Geothermal · Low-Temperature Energy",
+      "preview": "India has numerous geothermal manifestations and hot springs, yet most geothermal resources remain underutilized.",
+      "desc": "India has numerous geothermal manifestations and hot springs, yet most geothermal resources remain underutilized. Many Indian resources are not suited to conventional high-temperature geothermal power plants. How can relatively low- and medium-temperature hot-spring resources be put to use?",
+      "techScope": [
+        "Evaluate approaches for low- and medium-temperature geothermal resources.",
+        "Convert heat into electricity, heating, cooling or other useful energy.",
+        "Assess technical and economic practicality."
+      ],
+      "deliverables": [
+        "Concept design for utilising a hot-spring resource.",
+        "Estimated energy output and cost feasibility.",
+        "Comparison of possible end uses (power, heating, cooling)."
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    },
+    {
+      "code": "KII26404",
+      "title": "India's Untapped Wave-Energy Potential",
+      "category": "Marine Energy",
+      "complexity": "Wave Power",
+      "tag": "Marine Energy · Wave Power",
+      "preview": "India has a long coastline and significant wave-energy resources, but wave energy remains largely undeveloped.",
+      "desc": "India has a long coastline and significant wave-energy resources, but wave energy remains largely undeveloped. Systems must operate in irregular sea conditions while surviving corrosion, biofouling, storms and difficult maintenance.",
+      "techScope": [
+        "Design or evaluate a way to extract useful energy from coastal waves.",
+        "Address corrosion, biofouling, storms and maintenance.",
+        "Consider real Indian marine conditions and economic viability."
+      ],
+      "deliverables": [
+        "Wave-energy converter concept or model.",
+        "Estimated energy output for Indian coastal conditions.",
+        "Reliability, maintenance and cost assessment."
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    },
+    {
+      "code": "KII26405",
+      "title": "Predicting Wind-Turbine Efficiency Degradation",
+      "category": "Wind",
+      "complexity": "Condition Monitoring",
+      "tag": "Wind · Condition Monitoring",
+      "preview": "Wind turbines generally do not maintain their original efficiency over their lifetime.",
+      "desc": "Wind turbines generally do not maintain their original efficiency over their lifetime. Blades, bearings, gearboxes, generators, converters and sensors can degrade gradually, causing output to fall before a complete failure occurs.",
+      "techScope": [
+        "Build a model that monitors turbine operating data and detects efficiency degradation.",
+        "Identify the component most likely responsible.",
+        "Indicate whether it needs inspection, repair or replacement."
+      ],
+      "deliverables": [
+        "Degradation-detection model with validation on operating data.",
+        "Component-attribution output for detected degradation.",
+        "Maintenance recommendation logic."
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    },
+    {
+      "code": "KII26406",
+      "title": "Recovering Energy During Wind-Turbine Overspeed",
+      "category": "Wind",
+      "complexity": "Power Electronics",
+      "tag": "Wind · Power Electronics",
+      "preview": "When wind speed becomes excessive, turbines must limit rotor speed to protect components using pitch control, mechanical braking a…",
+      "desc": "When wind speed becomes excessive, turbines must limit rotor speed to protect components using pitch control, mechanical braking and electrical loading. During controlled overspeed, some available mechanical energy may be dissipated or curtailed.",
+      "techScope": [
+        "Explore regenerative or electrical braking to convert excess rotational energy into useful electrical or stored energy.",
+        "Keep the turbine within safe mechanical and electrical limits.",
+        "Compare against conventional overspeed protection."
+      ],
+      "deliverables": [
+        "Control or circuit concept for energy recovery during overspeed.",
+        "Simulation or bench results of energy recovered.",
+        "Safety-limit analysis."
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    },
+    {
+      "code": "KII26407",
+      "title": "Preventing Solar-Energy Curtailment During the Duck Curve",
+      "category": "Solar",
+      "complexity": "Grid Integration",
+      "tag": "Solar · Grid Integration",
+      "preview": "As solar penetration increases, large quantities of PV generation become available around midday while net demand falls, and the g…",
+      "desc": "As solar penetration increases, large quantities of PV generation become available around midday while net demand falls, and the grid may be unable to absorb, transmit or balance all of it. Solar output may be curtailed even though the resource is available.",
+      "techScope": [
+        "Capture, shift, store, transmit or consume otherwise-curtailed solar electricity.",
+        "Evaluate options for increasing the utilised fraction of available solar energy.",
+        "Consider technical and economic feasibility."
+      ],
+      "deliverables": [
+        "Model of curtailment during the duck curve.",
+        "Proposed strategy or combination of strategies to utilise surplus solar.",
+        "Estimate of energy recovered versus no action."
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    },
+    {
+      "code": "KII26408",
+      "title": "Maintaining Grid Stability During Extreme Heat",
+      "category": "Grid Stability",
+      "complexity": "Extreme Weather",
+      "tag": "Grid Stability · Extreme Weather",
+      "preview": "Extreme heat can increase electricity demand for cooling while stressing generation, transmission and distribution.",
+      "desc": "Extreme heat can increase electricity demand for cooling while stressing generation, transmission and distribution. Generator outages, high network loading, renewable variability and sharp demand changes can combine to increase the risk of instability.",
+      "techScope": [
+        "Combine generation flexibility, storage, demand management, grid control, forecasting and protection.",
+        "Evaluate their contribution to stability during extreme-heat events.",
+        "Consider reliability of the whole system."
+      ],
+      "deliverables": [
+        "Simulation or analysis of a heat-event scenario.",
+        "Proposed combination of measures with expected benefit.",
+        "Assessment of reliability improvement."
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    },
+    {
+      "code": "KII26409",
+      "title": "Industrial Waste-Heat Recovery",
+      "category": "Industrial Energy",
+      "complexity": "Waste Heat",
+      "tag": "Industrial Energy · Waste Heat",
+      "preview": "Steel mills, cement plants and other energy-intensive industries release large amounts of thermal energy through furnaces, kilns, …",
+      "desc": "Steel mills, cement plants and other energy-intensive industries release large amounts of thermal energy through furnaces, kilns, exhaust gases, clinker cooling and hot surfaces. Much of this heat is discharged even though it originated from valuable fuel or electricity.",
+      "techScope": [
+        "Recover waste heat and convert it into electricity, process heat, cooling or stored thermal energy.",
+        "Do so economically.",
+        "Avoid negatively affecting the primary industrial process."
+      ],
+      "deliverables": [
+        "Concept design for a heat-recovery system.",
+        "Estimated recoverable energy and economics.",
+        "Analysis of impact on the primary process."
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    },
+    {
+      "code": "KII26410",
+      "title": "Industrial Loads as Renewable-Energy Storage",
+      "category": "Demand Flexibility",
+      "complexity": "Industrial Loads",
+      "tag": "Demand Flexibility · Industrial Loads",
+      "preview": "Surplus renewable electricity does not always need to be stored in batteries.",
+      "desc": "Surplus renewable electricity does not always need to be stored in batteries. Some industrial processes, including thermal processes, cold storage, compressors and batch operations, have electricity demand that may be shifted in time without proportionally reducing production.",
+      "techScope": [
+        "Identify which industrial processes can act as flexible demand.",
+        "Quantify how much consumption can shift toward high renewable generation.",
+        "Ensure production and product quality are not affected."
+      ],
+      "deliverables": [
+        "Ranked list of flexible industrial processes.",
+        "Estimate of shiftable load.",
+        "Scheduling approach that protects production and quality."
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    },
+    {
+      "code": "KII26411",
+      "title": "Long-Duration Renewable-Energy Storage Beyond Conventional Batteries",
+      "category": "Energy Storage",
+      "complexity": "Long Duration",
+      "tag": "Energy Storage · Long Duration",
+      "preview": "As renewable penetration increases, electricity may need to be stored for days or longer.",
+      "desc": "As renewable penetration increases, electricity may need to be stored for days or longer. Simply adding more lithium-ion batteries increases cost, material requirements, thermal-management needs and system complexity.",
+      "techScope": [
+        "Explore alternative or hybrid storage approaches for storage over days or longer.",
+        "Evaluate efficiency, safety, lifetime and environmental performance.",
+        "Assess economics."
+      ],
+      "deliverables": [
+        "Comparison of candidate long-duration storage options.",
+        "Recommended approach with efficiency and cost estimates.",
+        "Safety, lifetime and environmental assessment."
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    },
+    {
+      "code": "KII26412",
+      "title": "Hydropower Turbine Erosion from Sediment",
+      "category": "Hydropower",
+      "complexity": "Materials & Erosion",
+      "tag": "Hydropower · Materials & Erosion",
+      "preview": "Rivers carry suspended sand, silt and other abrasive particles.",
+      "desc": "Rivers carry suspended sand, silt and other abrasive particles. When sediment passes through hydropower turbines at high velocity, it erodes blades and runner surfaces, reducing efficiency and increasing maintenance and replacement.",
+      "techScope": [
+        "Protect turbines in sediment-heavy rivers from progressive erosion.",
+        "Maintain high energy-conversion efficiency.",
+        "Avoid frequent replacement or major alteration of river flow."
+      ],
+      "deliverables": [
+        "Erosion-mitigation concept (design, coating or operation).",
+        "Analysis or test of erosion resistance.",
+        "Assessment of efficiency and maintenance impact."
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    },
+    {
+      "code": "KII26413",
+      "title": "Renewable Energy During Cyclones — Shut Down or Survive?",
+      "category": "Resilience",
+      "complexity": "Extreme Weather",
+      "tag": "Resilience · Extreme Weather",
+      "preview": "Solar farms, wind turbines and electrical infrastructure can experience extreme wind, flooding, debris impact and rapid environmen…",
+      "desc": "Solar farms, wind turbines and electrical infrastructure can experience extreme wind, flooding, debris impact and rapid environmental change during cyclones. Designing every component only for the maximum possible load substantially increases installation cost.",
+      "techScope": [
+        "Predict approaching extreme weather.",
+        "Dynamically change operating or physical configuration to reduce damage.",
+        "Reduce reliance on stronger and more expensive structures."
+      ],
+      "deliverables": [
+        "Concept or prototype for weather-triggered protective response.",
+        "Comparison of damage or cost versus fixed strong design.",
+        "Decision logic for shutdown versus survival configuration."
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    },
+    {
+      "code": "KII26414",
+      "title": "Can Solar and Wind Share the Same Grid Connection?",
+      "category": "Grid Integration",
+      "complexity": "Hybrid Plants",
+      "tag": "Grid Integration · Hybrid Plants",
+      "preview": "Solar peaks during the day while wind may occur at different times, so transmission connections and substations remain underutilis…",
+      "desc": "Solar peaks during the day while wind may occur at different times, so transmission connections and substations remain underutilised for significant portions of the day.",
+      "techScope": [
+        "Share transmission capacity, substations and power-conversion infrastructure between solar and wind.",
+        "Increase utilisation of existing grid connections.",
+        "Avoid congestion, instability and power-quality problems."
+      ],
+      "deliverables": [
+        "Model of combined solar-wind generation on one connection.",
+        "Utilisation improvement estimate.",
+        "Analysis of congestion and power-quality risks."
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    },
+    {
+      "code": "KII26415",
+      "title": "Renewable-Energy Cybersecurity",
+      "category": "Cybersecurity",
+      "complexity": "Control Systems",
+      "tag": "Cybersecurity · Control Systems",
+      "preview": "Modern renewable plants depend on sensors, digital controllers, remote monitoring, communication networks and software-based energ…",
+      "desc": "Modern renewable plants depend on sensors, digital controllers, remote monitoring, communication networks and software-based energy-management systems. A cyberattack or corrupted sensor signal could cause incorrect control decisions in a grid-connected system.",
+      "techScope": [
+        "Detect malicious or abnormal control commands and corrupted sensor data.",
+        "Continue operating safely when communication or monitoring is compromised.",
+        "Keep cost and computational complexity low."
+      ],
+      "deliverables": [
+        "Detection method with test results on injected attacks and corrupted data.",
+        "Safe-operation fallback strategy.",
+        "Cost and complexity assessment. ---"
+      ],
+      "status": "final",
+      "requested_by": "Ré Forum"
+    }
+  ],
+  "designtextiles": [
+    {
+      "code": "KII26501",
+      "title": "PFAS-Free Oil-Repellent Finish for the Apparel Industry",
+      "category": "Functional Finishes",
+      "complexity": "Sustainable Chemistry",
+      "tag": "Functional Finishes · Sustainable Chemistry",
+      "preview": "Oil and stain-repellent finishes on workwear, aprons and outdoor apparel have relied on PFAS \"forever chemicals\", which are being …",
+      "desc": "Oil and stain-repellent finishes on workwear, aprons and outdoor apparel have relied on PFAS \"forever chemicals\", which are being phased out globally due to bioaccumulation and health risks. Most affordable alternatives repel water well but perform poorly against oil, which has much lower surface tension. Can a fluorine-free finish reach oil-repellency close enough to PFAS to be commercially viable for apparel?",
+      "techScope": [
+        "Trial 2–3 fluorine-free chemistries (silicone-based, wax-dispersion, bio-based plant-wax or stearic-acid derivative) on standard woven cotton or cotton-poly fabric, applied by pad-dry-cure.",
+        "Test oil repellency (AATCC 118 style 1–8 rating), water contact angle, wash durability at 0/5/10/20 washes, and hand-feel or stiffness.",
+        "Benchmark against an untreated control and, if accessible, a PFAS-treated reference."
+      ],
+      "deliverables": [
+        "Comparison table: finish type × oil-repellency rating × wash durability × cost per metre × hand-feel score.",
+        "Recommendation on which fluorine-free option comes closest to PFAS performance for apparel.",
+        "Note on the biggest remaining performance gap, usually wash durability."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26502",
+      "title": "Alternative for Metal Safety-Pin Hangtags That Put Holes in Garments",
+      "category": "Retail Textiles",
+      "complexity": "Product Design",
+      "tag": "Retail Textiles · Product Design",
+      "preview": "Retail tags are almost universally attached with metal safety pins or plastic barbs that pierce fabric.",
+      "desc": "Retail tags are almost universally attached with metal safety pins or plastic barbs that pierce fabric. On delicate fabrics such as silk, fine cotton, knitwear and premium handloom, this leaves permanent pinholes or snag marks. Can a non-piercing method hold a tag securely through in-store handling while leaving zero permanent mark?",
+      "techScope": [
+        "Design and test 2–3 non-piercing mechanisms: elastic loop-and-slot tag, micro-clip with softened jaws, and removable low-tack adhesive-tab tag.",
+        "Test pull force to failure, reattachment count (10–20 cycles), handling simulation (folding, hanging, trying on), fabric damage under magnification, and cost per tag.",
+        "Benchmark against a standard safety-pin tag."
+      ],
+      "deliverables": [
+        "Comparison table: attachment method × pull force × reattachment durability × visible fabric damage × cost per unit.",
+        "Recommendation on the best \"same security, zero damage\" method.",
+        "Guidance on which fabric types (delicate versus sturdy) each option suits."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26503",
+      "title": "Alternative Mosquito-Repellent Treatment for Sleeping Bags and Camping Textiles",
+      "category": "Functional Textiles",
+      "complexity": "Natural Repellents",
+      "tag": "Functional Textiles · Natural Repellents",
+      "preview": "Permethrin is the industry-standard insect-repellent treatment for camping textiles but is toxic to aquatic life and cats, persist…",
+      "desc": "Permethrin is the industry-standard insect-repellent treatment for camping textiles but is toxic to aquatic life and cats, persistent in the environment, and leaves residue on skin-contact fabric. Natural repellents such as citronella, neem and eucalyptus oils lose effectiveness within hours on fabric. Can a plant-based repellent be bound to fabric with enough durability and slow release for a multi-night trip?",
+      "techScope": [
+        "Test 2–3 delivery methods on sleeping-bag-liner fabric: microencapsulated essential-oil finish, neem-oil pad-dry-cure finish, and a replaceable herb sachet in the lining.",
+        "Measure repellency (landing-rate field bioassay or lab partnership) at 0, 8 and 24 hours and after washing, plus scent tolerability and wash durability at 0/5/10 washes.",
+        "Add a literature-based environmental comparison against Permethrin; benchmark against untreated and, if accessible, permethrin-treated fabric."
+      ],
+      "deliverables": [
+        "Comparison table: treatment × repellency duration × landing-rate reduction × wash durability × scent rating × environmental impact.",
+        "Conclusion on which method gets closest to Permethrin's effectiveness window.",
+        "Honest note on the remaining durability gap."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26504",
+      "title": "Distinguishing Genuine Handloom from Machine-Made Imitations and Making Weaver Stories Visible",
+      "category": "Handloom",
+      "complexity": "Authentication & Provenance",
+      "tag": "Handloom · Authentication & Provenance",
+      "preview": "Genuine handloom is hard for customers to tell apart from machine-made imitations, and weavers' stories rarely reach the buyer.",
+      "desc": "Genuine handloom is hard for customers to tell apart from machine-made imitations, and weavers' stories rarely reach the buyer. Can a low-cost, weaver-friendly system verify authenticity and show the weaver's story at the point of purchase without expensive technology or literacy barriers?",
+      "techScope": [
+        "Authenticity: a tamper-evident physical marker (unique thread pattern, QR label or hologram-plus-QR) linked to a database record of weaver, loom, date and product; customer scans the QR to verify.",
+        "Story layer: the same scan shows a weaver profile (name, region, experience, photo, note on the piece), with a simple intake method such as phone or voice-note collection for low-literacy weavers.",
+        "Test tag-forgery resistance, scan reliability across phones and lighting, weaver onboarding usability, customer willingness to pay, and cost per unit."
+      ],
+      "deliverables": [
+        "Working prototype: physical tag or QR sample plus a web page showing verification status and weaver story.",
+        "Forgery-resistance test result.",
+        "Customer willingness-to-pay survey comparing tagged versus untagged items."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26505",
+      "title": "Campus-Waste-to-Composite: Turning Campus Leaf Litter and Plastic Waste into Usable Panels",
+      "category": "Waste Valorisation",
+      "complexity": "Green Composites",
+      "tag": "Waste Valorisation · Green Composites",
+      "preview": "The campus continuously generates dry leaf litter (swept and often burned or dumped) and plastic waste, with no on-campus value-recovery pathway.",
+      "desc": "The campus continuously generates dry leaf litter (swept and often burned or dumped) and plastic waste, with no on-campus value-recovery pathway. Shredded leaf fibre with shredded plastic as the binding matrix could form a usable composite. Can such a panel reach useful strength for a low-load campus application using zero external raw material?",
+      "techScope": [
+        "Prepare leaf fibre and single-type shredded plastic (LDPE or PET); heat-press composites at varied leaf-to-plastic ratios (e.g. 20/80, 40/60, 60/40).",
+        "Test flexural or impact strength against a plastic-only panel, water absorption and swelling, and 2–3 weeks of outdoor UV exposure.",
+        "Account for waste volume consumed and possible campus applications (signage boards, garden edging or pavers, planters, common-room accent panels)."
+      ],
+      "deliverables": [
+        "Working composite panel or tile prototype made entirely from campus-collected waste.",
+        "Strength and water-resistance comparison table across fibre ratios.",
+        "Waste-diversion estimate (kg of waste per panel and share of monthly waste offset)."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26506",
+      "title": "AI-Powered Business Assistant for Fashion MSMEs (Trend Forecasting + Dynamic Pricing + More)",
+      "category": "Fashion Tech",
+      "complexity": "AI for MSMEs",
+      "tag": "Fashion Tech · AI for MSMEs",
+      "preview": "Small fashion MSMEs cannot afford the trend-forecasting, dynamic-pricing and customer-analytics tools used by large brands, althou…",
+      "desc": "Small fashion MSMEs cannot afford the trend-forecasting, dynamic-pricing and customer-analytics tools used by large brands, although the underlying signals are free or near-free. The gap is that nobody has bundled these into one affordable assistant. Can a lightweight modular assistant give MSMEs insight on what to make, what to charge and how to sell, using free data and simple explainable models?",
+      "techScope": [
+        "Module 1, trend engine: hashtag frequency, Google Trends and public bestseller lists, with a pretrained vision model extracting colour and garment category; rising/falling dashboard with lead-time metric.",
+        "Module 2, pricing assistant: rule-based scoring from competitor price, trend direction and stock level, giving a suggested price range. Module 3, sentiment and return-reason analyzer: buckets feedback into fit, fabric feel, colour mismatch, delivery delay and praise. Module 4 (optional): production-planning bridge to fabric quantity.",
+        "Validate with backtests for trend and pricing, agreement percentage for sentiment, and a usability test with a real MSME owner."
+      ],
+      "deliverables": [
+        "Working dashboard combining at least 2 of the 3 core modules.",
+        "Separately reported backtested accuracy for each module.",
+        "Written case study using any brand data as real-world validation."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26507",
+      "title": "Fragrance-Blended Reflective Coat for Sanitary Workers",
+      "category": "Protective Clothing",
+      "complexity": "Odour Control",
+      "tag": "Protective Clothing · Odour Control",
+      "preview": "Sanitation workers face low visibility near traffic during early-morning and night shifts, and constant exposure to malodour that …",
+      "desc": "Sanitation workers face low visibility near traffic during early-morning and night shifts, and constant exposure to malodour that affects wellbeing and public perception of the job. Reflective vests and odour treatments exist separately but not combined. Can a reflective safety coat carry a long-lasting, wash-durable fragrance or odour-neutralising treatment without either function compromising the other?",
+      "techScope": [
+        "Reflective part: standard retroreflective tape on hi-vis fabric at chest, back and arms.",
+        "Odour part: microencapsulated fragrance finish, or an odour-neutralising finish (activated charcoal or zinc-ricinoleate type), ideally a neutralising base layer plus a light fragrance top-note.",
+        "Test reflectivity retention, odour neutralisation against a real malodour source, fragrance longevity at 0/8 hours and post-wash, reflective-tape wash durability at 10–15 washes, and wearer comfort."
+      ],
+      "deliverables": [
+        "Working coat or vest prototype with both functions integrated.",
+        "Reflectivity-retention comparison, treated versus untreated.",
+        "Odour-neutralisation rating across time (0 hr / 8 hr / post-wash) and wearer-acceptance survey result."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26508",
+      "title": "Anti-Static + Flame-Resistant Coverall for Fuel Station and LPG Workers",
+      "category": "Protective Clothing",
+      "complexity": "Industrial Safety",
+      "tag": "Protective Clothing · Industrial Safety",
+      "preview": "Fuel-station and LPG workers face fire risk from static discharge near fuel vapour, yet most wear polyester-blend uniforms that bu…",
+      "desc": "Fuel-station and LPG workers face fire risk from static discharge near fuel vapour, yet most wear polyester-blend uniforms that build static and can melt onto skin. Industrial anti-static and flame-resistant coveralls exist but are expensive imports. Can a locally producible coverall reach static-dissipation and flame-resistance performance close to commercial standards at a fraction of the cost?",
+      "techScope": [
+        "Anti-static: continuous grid of conductive thread (stainless-steel or metal-coated) every 2–3 cm in cotton or cotton-poly fabric.",
+        "Flame resistance: non-halogenated phosphorus/nitrogen FR finish by pad-dry-cure at 2–3 concentrations, balancing protection with fabric stiffness.",
+        "Test static-charge decay, vertical flame test (char length, afterflame), performance after 0/5/10 washes, wearer comfort, and cost versus imported coveralls."
+      ],
+      "deliverables": [
+        "Coverall or fabric-panel prototype with both treatments integrated.",
+        "Static-decay and flame-test result tables, treated versus untreated, across wash cycles.",
+        "Cost comparison against commercial alternatives."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26509",
+      "title": "Natural-Fibre-Reinforced Composite Blade for Small Wind Turbines",
+      "category": "Green Composites",
+      "complexity": "Renewable Energy Materials",
+      "tag": "Green Composites · Renewable Energy Materials",
+      "preview": "Even micro wind-turbine blades are usually glass or carbon-fibre composite, which are expensive and non-biodegradable.",
+      "desc": "Even micro wind-turbine blades are usually glass or carbon-fibre composite, which are expensive and non-biodegradable. Natural fibres such as jute, coir, sisal and banana are cheap and locally abundant in India but rarely tested for blades, where stiffness-to-weight and fatigue matter most. Can a natural-fibre composite blade be a viable low-cost alternative for low-load micro-turbines?",
+      "techScope": [
+        "Hand-layup jute fabric with resin (epoxy, or bio-resin if accessible) in a mould for a 30–60 cm blade, with an identical glass-fibre control.",
+        "Test tip deflection, weight, RPM versus wind speed on an identical hub, fatigue by repeated flexing, and moisture absorption.",
+        "Document moisture-resistance limits and a mitigation such as a protective coating."
+      ],
+      "deliverables": [
+        "Working jute-composite blade prototype and glass-fibre control.",
+        "Stiffness, weight and RPM-versus-wind-speed comparison.",
+        "Documented moisture-resistance limitations with a suggested mitigation."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26510",
+      "title": "Thermoreversible Adhesive Seams for Easier Garment Disassembly and Recycling",
+      "category": "Circular Fashion",
+      "complexity": "Garment Recycling",
+      "tag": "Circular Fashion · Garment Recycling",
+      "preview": "Stitched seams make garments hard to disassemble for recycling.",
+      "desc": "Stitched seams make garments hard to disassemble for recycling. A heat-activated adhesive seam that holds through normal wear and washing but releases cleanly at a higher controlled temperature could enable recycling. Can an off-the-shelf heat-activated adhesive prove this at prototype scale?",
+      "techScope": [
+        "Use commercially available hot-melt film or webbing (fusible bonding web type) or low-melt hot-glue to bond two fabric panels with a household iron or heat press.",
+        "Test bond strength versus a stitched seam, wash durability over 5–10 washes, controlled release at a higher temperature with residue scoring, recovered-fabric quality, and the temperature margin between wash/iron and release."
+      ],
+      "deliverables": [
+        "Bonded (not stitched) fabric-panel prototype.",
+        "Bond-strength comparison against stitched seams and a wash-durability result.",
+        "Controlled-release demonstration showing clean separation at a defined higher temperature."
+      ],
+      "status": "final",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26511",
+      "title": "Phase-Change-Material (PCM) Thermoregulating Fabric",
+      "category": "Smart Textiles",
+      "complexity": "Thermal Comfort",
+      "tag": "Smart Textiles · Thermal Comfort",
+      "preview": "Textile finishes containing microencapsulated phase-change materials can absorb and release heat to buffer wearer temperature.",
+      "desc": "Textile finishes containing microencapsulated phase-change materials can absorb and release heat to buffer wearer temperature. This is referenced elsewhere in the Textile set and is drafted here as a placeholder pending confirmation with the circle.",
+      "techScope": [
+        "Apply microencapsulated PCM to fabric by pad-dry-cure.",
+        "Test thermal buffering, wash durability and hand-feel against untreated fabric."
+      ],
+      "deliverables": [
+        "Treated-fabric prototype.",
+        "Thermal-performance and wash-durability comparison.",
+        "Cost and applicability note."
+      ],
+      "status": "draft",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26512",
+      "title": "Handloom Demand Forecasting and Yarn-Quantity Planning",
+      "category": "Handloom",
+      "complexity": "Demand Forecasting",
+      "tag": "Handloom · Demand Forecasting",
+      "preview": "Handloom producers often plan yarn and production without reliable demand signals.",
+      "desc": "Handloom producers often plan yarn and production without reliable demand signals. This is referenced in the Textile set and is drafted here as a placeholder pending confirmation with the circle.",
+      "techScope": [
+        "Forecast demand for handloom products from available sales or trend data.",
+        "Convert forecasts into a basic yarn/fabric-quantity calculator."
+      ],
+      "deliverables": [
+        "Working forecasting and quantity-planning prototype.",
+        "Backtest accuracy report.",
+        "Usability feedback from a producer or simulated user."
+      ],
+      "status": "draft",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26513",
+      "title": "Return-Reason Analysis for Online Fashion Sales",
+      "category": "Fashion Analytics",
+      "complexity": "Returns Reduction",
+      "tag": "Fashion Analytics · Returns Reduction",
+      "preview": "Returns due to fit, fabric feel and colour mismatch hurt small fashion sellers.",
+      "desc": "Returns due to fit, fabric feel and colour mismatch hurt small fashion sellers. This is referenced in the Textile set and is drafted here as a placeholder pending confirmation with the circle.",
+      "techScope": [
+        "Categorise return reasons and customer feedback into actionable buckets.",
+        "Link findings to changes such as size charts and product descriptions."
+      ],
+      "deliverables": [
+        "Working return-reason classifier or dashboard.",
+        "Validation against manually labelled feedback.",
+        "Example actionable recommendations."
+      ],
+      "status": "draft",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26514",
+      "title": "PFAS-Free / Non-Halogenated Flame-Resistant Finish for Apparel",
+      "category": "Protective Clothing",
+      "complexity": "Sustainable Chemistry",
+      "tag": "Protective Clothing · Sustainable Chemistry",
+      "preview": "Flame-retardant finishes for apparel should avoid halogenated and PFAS chemistries.",
+      "desc": "Flame-retardant finishes for apparel should avoid halogenated and PFAS chemistries. This is referenced in the Textile set and is drafted here as a placeholder pending confirmation with the circle.",
+      "techScope": [
+        "Apply a non-halogenated phosphorus/nitrogen FR finish to standard fabric.",
+        "Test flame performance, wash durability and stiffness."
+      ],
+      "deliverables": [
+        "Treated fabric samples.",
+        "Flame-test and wash-durability results.",
+        "Cost and hand-feel comparison."
+      ],
+      "status": "draft",
+      "requested_by": "Ré Research Cell & Faculty"
+    },
+    {
+      "code": "KII26515",
+      "title": "Reserved slot — awaiting Textile statement",
+      "category": "To be announced",
+      "complexity": "To be announced",
+      "tag": "To be announced",
+      "preview": "This slot is reserved so the Textile domain totals 15 statements.",
+      "desc": "This slot is reserved so the Textile domain totals 15 statements.",
+      "techScope": [
+        "To be provided."
+      ],
+      "deliverables": [
+        "To be provided. ---"
+      ],
+      "status": "placeholder",
+      "requested_by": "Ré Research Cell & Faculty"
+    }
+  ]
+}
